@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  my-service-production:
+    container_name: my-service-production
+    build:
+      target: production
+      context: .
+      args:
+        - PORT=${PORT}
+    ports:
+      - "${PORT}:${PORT}"
+
+  my-service-dev:
+    container_name: my-service-dev
+    restart: unless-stopped
+    env_file: .env
+    build:
+      target: dev
+      context: .
+      args:
+        - PORT=${PORT}
+    ports:
+      - "${PORT}:${PORT}"
+      - "9229:9229"
+    volumes:
+      - .:/project
+      - node_modules:/project/node_modules/
+
+volumes:
+  node_modules:

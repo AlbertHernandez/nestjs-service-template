@@ -1,0 +1,27 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - name: Npm version
+        run: |
+          npm install npm@10.2 -g
+      - name: npm ci
+        run: |
+          npm ci
+      - name: npm run build
+        run: |
+          npm run build --if-present
+          npm run lint
+      - name: npm test
+        run: |
+          npm test
