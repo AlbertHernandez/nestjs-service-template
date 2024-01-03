@@ -25,7 +25,3 @@ services:
       - "9229:9229"
     volumes:
       - .:/project
-      - node_modules:/project/node_modules/
-
-volumes:
-  node_modules:

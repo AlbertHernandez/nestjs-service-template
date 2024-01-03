@@ -1,4 +1,4 @@
-FROM node:21-alpine3.18 AS base
+FROM node:20-alpine3.18 AS base
 
 ENV DIR /project
 WORKDIR $DIR
@@ -11,7 +11,7 @@ ENV NODE_ENV=development
 COPY package*.json $DIR
 
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $DIR/.npmrc && \
-    npm install && \
+    npm ci && \
     rm -f .npmrc
 
 COPY tsconfig*.json $DIR

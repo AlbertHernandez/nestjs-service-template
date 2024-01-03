@@ -1,11 +1,11 @@
-<h1 align="center">Express Typescript Service Skeleton</h1>
+<h1 align="center">NestJS Service Skeleton</h1>
 
 <p align="center">
-  Skeleton for new typescript services based on express
+  Skeleton for new services based on nestjs
 </p>
 
 <p align="center">
-    <a href="https://github.com/AlbertHernandez/express-typescript-service-skeleton/actions/workflows/nodejs.yml?branch=main"><img src="https://github.com/AlbertHernandez/express-typescript-service-skeleton/actions/workflows/nodejs.yml/badge.svg?branch=main" alt="nodejs"/></a>
+    <a href="https://github.com/AlbertHernandez/nestjs-service-skeleton/actions/workflows/nodejs.yml?branch=main"><img src="https://github.com/AlbertHernandez/nestjs-service-skeleton/actions/workflows/nodejs.yml/badge.svg?branch=main" alt="nodejs"/></a>
 </p>
 
 ## Table of Contents

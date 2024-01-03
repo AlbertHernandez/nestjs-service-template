@@ -1,21 +1,19 @@
-import "./load-env-vars";
+import { Logger } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
+import { NestFactory } from "@nestjs/core";
 
-import express from "express";
+import { AppModule } from "./app.module";
 
-import { config } from "./config";
-import { healthRouter } from "./health/health-router";
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
 
-function boostrap() {
-  const app = express();
+  const configService = app.get(ConfigService);
+  const port = configService.get<string>("PORT", "3000");
 
-  app.use(express.json());
-  app.use("/health", healthRouter);
+  await app.listen(port);
 
-  const { port } = config.server;
-
-  app.listen(port, () => {
-    console.log(`[APP] - Started application on port ${port}`);
-  });
+  const logger = app.get(Logger);
+  logger.log(`App is ready and listening on port ${port} 🚀`);
 }
 
-boostrap();
+bootstrap();
