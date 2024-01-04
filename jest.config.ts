@@ -1,7 +1,9 @@
 import type { Config } from "jest";
 
 const config: Config = {
-  preset: "ts-jest",
+  transform: {
+    "^.+\\.(t|j)s$": "@swc/jest",
+  },
   testEnvironment: "node",
   cacheDirectory: ".tmp/jestCache",
   collectCoverage: true,
