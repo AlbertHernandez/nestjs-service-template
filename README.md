@@ -41,6 +41,12 @@ Here we are not providing any specific architecture like hexagonal architecture 
 
 ## 🧑‍💻 Developing
 
+First, we will need to create our .env file, we can create a copy from the example one:
+
+```bash
+cp .env.example .env
+```
+
 The project is fully dockerized 🐳, if we want to start the app in **development mode**, we just need to run:
 
 ```bash
