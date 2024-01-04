@@ -24,4 +24,4 @@ services:
       - "${PORT}:${PORT}"
       - "9229:9229"
     volumes:
-      - .:/project
+      - ./src:/project/src
