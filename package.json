@@ -1,21 +1,21 @@
 {
-  "name": "nestjs-service-skeleton",
+  "name": "nestjs-service-template",
   "version": "1.0.0",
-  "description": "Skeleton for new nestjs services",
+  "description": "Template for new nestjs services",
   "author": "alberthernandezdev@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AlbertHernandez/nestjs-service-skeleton/issues"
+    "url": "https://github.com/AlbertHernandez/nestjs-service-template/issues"
   },
-  "homepage": "https://github.com/AlbertHernandez/nestjs-service-skeleton#readme",
+  "homepage": "https://github.com/AlbertHernandez/nestjs-service-template#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlbertHernandez/nestjs-service-skeleton.git"
+    "url": "git+https://github.com/AlbertHernandez/nestjs-service-template.git"
   },
   "keywords": [
     "typescript",
     "nestjs",
-    "skeleton"
+    "template"
   ],
   "engines": {
     "node": ">=20.9",

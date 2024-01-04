@@ -2,14 +2,14 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-<h1 align="center">⭐ NestJS Service Skeleton ⭐</h1>
+<h1 align="center">⭐ NestJS Service Template ⭐</h1>
 
 <p align="center">
-  Skeleton for new services based on NestJS with the Best Practices and Ready for Production
+  Template for new services based on NestJS with the Best Practices and Ready for Production
 </p>
 
 <p align="center">
-  <a href="https://github.com/AlbertHernandez/nestjs-service-skeleton/actions/workflows/nodejs.yml?branch=main"><img src="https://github.com/AlbertHernandez/nestjs-service-skeleton/actions/workflows/nodejs.yml/badge.svg?branch=main" alt="nodejs"/></a>
+  <a href="https://github.com/AlbertHernandez/nestjs-service-template/actions/workflows/nodejs.yml?branch=main"><img src="https://github.com/AlbertHernandez/nestjs-service-template/actions/workflows/nodejs.yml/badge.svg?branch=main" alt="nodejs"/></a>
   <a href="https://nodejs.org/docs/latest-v20.x/api/index.html"><img src="https://img.shields.io/badge/node-20.x-green.svg" alt="node"/></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/typescript-5.x-blue.svg" alt="typescript"/></a>
   <a href="https://docs.nestjs.com/v10/"><img src="https://img.shields.io/badge/npm-10.x-red.svg" alt="npm"/></a>
@@ -22,11 +22,11 @@
 
 When we start creating some new service based on NestJS most often we just use the Nest cli for starting a new service that already give us some convention and structure for our project. This is a good starting point however I was missing a couple of interesting things that almost all services should have to be ready to deploy to production like fully dockerized, ensuring coding conventions...
 
-For this reason I created this custom skeleton for new services based on this framework, with everything I would like to have to start developing a service with the best practices but with a simple file structure so later developers can change to implement their logic.
+For this reason I created this custom template for new services based on this framework, with everything I would like to have to start developing a service with the best practices but with a simple file structure so later developers can change to implement their logic.
 
-Here we are not providing any specific architecture like hexagonal architecture or others, this is like a simple skeleton where later we can customize and create the architecture we need.
+Here we are not providing any specific architecture like hexagonal architecture or others, this is like a simple template where later we can customize and create the architecture we need.
 
-## 🌟 What is including this skeleton?
+## 🌟 What is including this template?
 
 1. 🐳 Fully dockerized service ready for development and production environments with the best practices for docker, trying to provide a performance and small image just with the code we really need in your environments.
 2. 👷 Use [SWC](https://swc.rs/) for compiling and running the tests of the service. As commented in the own [NestJS docs](https://docs.nestjs.com/recipes/swc), this is approximately x20 times faster than default typescript compiler that is the one that comes by default in NestJS.
