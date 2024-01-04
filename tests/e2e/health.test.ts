@@ -7,10 +7,10 @@ import request from "supertest";
 
 import { AppModule } from "../../src/app.module";
 
-describe("HealthController (e2e)", () => {
+describe("Health", () => {
   let app: NestFastifyApplication;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -22,11 +22,11 @@ describe("HealthController (e2e)", () => {
     await app.getHttpAdapter().getInstance().ready();
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     await app.close();
   });
 
-  it("/health (GET)", () => {
+  it("/GET health", () => {
     return request(app.getHttpServer())
       .get("/health")
       .expect(200)
