@@ -14,6 +14,6 @@ fs.copyFileSync(
   `${COVERAGE_PATH}/e2e/coverage-final.json`,
   `${REPORTS_PATH}/e2e-coverage.json`,
 );
-execSync(`nyc report --reporter lcov --report-dir ${COVERAGE_PATH}/merge`, {
+execSync(`nyc report --report-dir ${COVERAGE_PATH}/merge`, {
   stdio: "inherit",
 });

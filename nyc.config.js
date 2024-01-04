@@ -8,6 +8,7 @@ const config = {
   lines: MIN_COVERAGE,
   functions: MIN_COVERAGE,
   statements: MIN_COVERAGE,
+  reporter: ["lcov", "json", "text"],
 };
 
 module.exports = config;
