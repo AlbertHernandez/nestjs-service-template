@@ -27,7 +27,7 @@
     "start": "node dist/main.js",
     "start:dev": "nest start --debug 9229 --watch",
     "test": "rimraf coverage && concurrently 'npm:test:unit' 'npm:test:e2e' && npm run coverage:global",
-    "test:unit": "jest tests/unit --coverageDirectory coverage/unit",
+    "test:unit": "jest tests/src --coverageDirectory coverage/unit",
     "test:e2e": "jest tests/e2e --coverageDirectory coverage/e2e",
     "coverage:global": "npm run coverage:merge-test-results && npm run coverage:create-global-report",
     "coverage:merge-test-results": "istanbul-merge --out coverage/global/coverage-final.json coverage/unit/coverage-final.json coverage/e2e/coverage-final.json",
