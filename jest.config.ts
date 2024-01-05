@@ -10,7 +10,7 @@ const config: Config = {
   collectCoverageFrom: ["src/**/*.ts"],
   setupFiles: ["<rootDir>.jest/set-env-vars.ts"],
   clearMocks: true,
-  coverageReporters: ["json", "lcov"],
+  coverageReporters: ["json", "lcov", "text"],
 };
 
 export default config;
