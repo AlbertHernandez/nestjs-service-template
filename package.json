@@ -18,8 +18,8 @@
     "template"
   ],
   "engines": {
-    "node": ">=20.x",
-    "npm": ">=10.x"
+    "node": ">=18.x",
+    "npm": ">=9.x"
   },
   "main": "dist/main.js",
   "scripts": {
