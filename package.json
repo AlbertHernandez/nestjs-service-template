@@ -17,6 +17,10 @@
     "nestjs",
     "template"
   ],
+  "engines": {
+    "node": ">=18.x",
+    "npm": ">=9.x"
+  },
   "main": "dist/main.js",
   "scripts": {
     "build": "npm run build:clean && nest build --path tsconfig.prod.json",
