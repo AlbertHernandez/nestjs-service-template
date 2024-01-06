@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="images/nestjs.png" alt="Nest Logo" width="512" /></a>
 </p>
 
 <h1 align="center">⭐ NestJS Service Template ⭐</h1>
@@ -59,7 +59,7 @@ Now, you should be able to start debugging configuring using your IDE. For examp
 
 ```json
 {
-  "version": "0.2.0",
+  "version": "0.1.0",
   "configurations": [
     {
       "type": "node",
