@@ -1,0 +1,22 @@
+name: Node
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛬
+        uses: actions/checkout@v4
+      - name: Setup Node ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies 📥
+        uses: bahmutov/npm-install@v1
+      - name: Build typescript 📦
+        run: npm run build
+      - name: Lint code 💅
+        run: npm run lint
+      - name: Run tests ✅
+        run: npm run test
