@@ -1,0 +1,14 @@
+name: docker-size
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Calculate docker image size
+        run:  |
+          docker build . -t my-service
+          docker images my-service --format "table {{.Repository}}\t{{.Size}}"
