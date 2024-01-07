@@ -1,0 +1,24 @@
+name: docker-size
+
+on:
+  pull_request:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 🐳 Calculate docker image size
+        id: docker
+        run:  |
+          docker build . -t service
+          image_size=$(docker images service | awk 'NR==2 {print $NF}')
+          echo "image_size=$image_size" >> $GITHUB_OUTPUT
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: <docker-image-size>
+          message: |
+            🐳 Size of the Docker Image: **${{ steps.docker.outputs.image_size }}**
