@@ -13,7 +13,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - name: Install dependencies 📥
-        uses: bahmutov/npm-install@v1
+        uses: npm ci
       - name: Build typescript 📦
         run: npm run build
       - name: Lint code 💅
