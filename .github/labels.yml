@@ -1,3 +1,6 @@
+- name: automerge
+  description: Indicates the PR is going to be merged automatically
+  color: 0E8A16
 - name: ignore-for-release
   description: Ignore pull request for a new release
   color: ededed
