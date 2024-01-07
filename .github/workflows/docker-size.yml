@@ -16,7 +16,7 @@ jobs:
         run:  |
           docker build . -t my-service
           image_size=docker images my-service --format "table {{.Repository}}\t{{.Size}}"
-          echo "image_size=$(image_size)\n" >> $GITHUB_OUTPUT
+          echo "image_size=$image_size\n" >> $GITHUB_OUTPUT
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: |
