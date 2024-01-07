@@ -3,6 +3,9 @@ name: docker-size
 on:
   pull_request:
 
+permissions:
+  pull-requests: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,3 +15,7 @@ jobs:
         run:  |
           docker build . -t my-service
           docker images my-service --format "table {{.Repository}}\t{{.Size}}"
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            Size of the docker image: XXXMB
