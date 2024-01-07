@@ -30,6 +30,7 @@
     "test:unit": "jest tests/src --coverageDirectory coverage/unit",
     "test:e2e": "jest tests/e2e --coverageDirectory coverage/e2e",
     "coverage:merge": "ts-node scripts/merge-coverage.ts",
+    "coverage:copy-to-report": "cp coverage/merge/coverage-final.json report.json",
     "prepare": "husky install",
     "lint": "eslint --ignore-path .gitignore . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
