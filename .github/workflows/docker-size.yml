@@ -16,10 +16,9 @@ jobs:
         run:  |
           docker build . -t my-service
           image_size=$(docker images my-service | awk 'NR==2 {print $NF}')
-          echo "image_size=$image_size\n" >> $GITHUB_OUTPUT
+          echo "image_size=$image_size" >> $GITHUB_OUTPUT
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: <docker-image-size>
           message: |
-            🐳 Size of the docker image: XXXMB
-            ${{ steps.docker.outputs.image_size }}
+            🐳 Size of the Docker Image: ${{ steps.docker.outputs.image_size }} 🐳
