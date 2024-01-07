@@ -14,8 +14,8 @@ jobs:
       - name: 🐳 Calculate docker image size
         id: docker
         run:  |
-          docker build . -t my-service
-          image_size=$(docker images my-service | awk 'NR==2 {print $NF}')
+          docker build . -t service
+          image_size=$(docker images service | awk 'NR==2 {print $NF}')
           echo "image_size=$image_size" >> $GITHUB_OUTPUT
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
