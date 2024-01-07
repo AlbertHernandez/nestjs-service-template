@@ -9,4 +9,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
-          test-script: npm run test && npm run coverage:copy-to-report
+          test-script: npm run test

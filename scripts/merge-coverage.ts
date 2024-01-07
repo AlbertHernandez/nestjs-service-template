@@ -17,3 +17,4 @@ fs.copyFileSync(
 execSync(`nyc report --report-dir ${COVERAGE_PATH}/merge`, {
   stdio: "inherit",
 });
+fs.copyFileSync(`${COVERAGE_PATH}/merge/coverage-final.json`, `report.json`);
