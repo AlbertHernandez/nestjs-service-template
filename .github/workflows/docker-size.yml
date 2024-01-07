@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Calculate docker image size
+      - name: 🐳 Calculate docker image size
         id: docker
         run:  |
           docker build . -t my-service
@@ -21,4 +21,4 @@ jobs:
         with:
           header: <docker-image-size>
           message: |
-            🐳 Size of the Docker Image: ${{ steps.docker.outputs.image_size }} 🐳
+            🐳 Size of the Docker Image: **${{ steps.docker.outputs.image_size }}**
