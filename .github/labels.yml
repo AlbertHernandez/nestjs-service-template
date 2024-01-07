@@ -1,0 +1,30 @@
+- name: bug
+  description: Something isn't working
+  color: d73a4a
+- name: dependencies
+  description: Pull requests that update a dependency file
+  color: 0366d6
+- name: documentation
+  description: Improvements or additions to documentation
+  color: 0075ca
+- name: duplicate
+  description: This issue or pull request already exists
+  color: cfd3d7
+- name: github_actions
+  description: Pull requests that update GitHub Actions code
+  color: 000000
+- name: size/xs
+  description: Pull request size XS
+  color: ededed
+- name: size/s
+  description: Pull request size S
+  color: ededed
+- name: size/m
+  description: Pull request size M
+  color: ededed
+- name: size/l
+  description: Pull request size L
+  color: ededed
+- name: size/xl
+  description: Pull request size XL
+  color: ededed
