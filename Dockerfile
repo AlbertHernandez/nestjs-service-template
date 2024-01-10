@@ -1,39 +1,36 @@
 FROM node:20-alpine3.18 AS base
+RUN npm i -g pnpm
 
 ENV DIR /project
 WORKDIR $DIR
-ARG NPM_TOKEN
 
 FROM base AS dev
 
 ENV NODE_ENV=development
 
 COPY package*.json $DIR
+COPY pnpm-*.yaml $DIR
 
-RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $DIR/.npmrc && \
-    npm ci && \
-    rm -f .npmrc
+RUN pnpm install
 
-COPY tsconfig*.json $DIR
+COPY tsconfig*.json $DIR/
 COPY src $DIR/src
 
 EXPOSE $PORT
-CMD ["npm", "run", "start:dev"]
+CMD ["pnpm", "run", "start:dev"]
 
 FROM base AS build
 
 RUN apk update && apk add --no-cache dumb-init
 
 COPY package*.json $DIR
-RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $DIR/.npmrc && \
-    npm ci && \
-    rm -f .npmrc
+COPY pnpm-*.yaml $DIR
+RUN pnpm install
 
-COPY tsconfig*.json $DIR
+COPY tsconfig*.json $DIR/
 COPY src $DIR/src
 
-RUN npm run build && \
-    npm prune --production
+RUN pnpm run build
 
 FROM base AS production
 
