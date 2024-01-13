@@ -7,42 +7,42 @@ permissions:
   pull-requests: write
 
 jobs:
-  calculate_base:
+  calculate-base:
     runs-on: ubuntu-latest
     outputs:
-      image_size: ${{ steps.docker_base.outputs.image_size }}
+      image_size: ${{ steps.docker-base.outputs.image_size }}
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.base_ref }}
       - name: 🐳 Calculate docker image size in ${{ github.base_ref }}
-        id: docker_base
+        id: docker-base
         run:  |
           docker build . -t service
           image_size=$(docker images service | awk 'NR==2 {print $NF}')
           echo "image_size=$image_size" >> $GITHUB_OUTPUT
-  calculate_head:
+  calculate-head:
     runs-on: ubuntu-latest
     outputs:
-      image_size: ${{ steps.docker_head.outputs.image_size }}
+      image_size: ${{ steps.docker-head.outputs.image_size }}
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
       - name: 🐳 Calculate docker image size in ${{ github.head_ref }}
-        id: docker_head
+        id: docker-head
         run:  |
           docker build . -t service
           image_size=$(docker images service | awk 'NR==2 {print $NF}')
           echo "image_size=$image_size" >> $GITHUB_OUTPUT
-  write_comment:
+  write-comment:
     runs-on: ubuntu-latest
-    needs: [calculate_base, calculate_head]
+    needs: [calculate-base, calculate-head]
     steps:
       - uses: marocchino/sticky-pull-request-comment@v2
         env:
-          BASE_DOCKER_IMAGE_SIZE: ${{needs.calculate_base.outputs.image_size}}
-          HEAD_DOCKER_IMAGE_SIZE: ${{needs.calculate_head.outputs.image_size}}
+          BASE_DOCKER_IMAGE_SIZE: ${{needs.calculate-base.outputs.image_size}}
+          HEAD_DOCKER_IMAGE_SIZE: ${{needs.calculate-head.outputs.image_size}}
         with:
           header: <docker-image-size>
           message: |
