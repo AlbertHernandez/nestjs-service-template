@@ -1,0 +1,15 @@
+name: 'Lint dockerfile'
+
+on:
+  push:
+
+jobs:
+  build:
+    name: Lint dockerfile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hadolint/hadolint-action@v3.1.0
+        id: hadolint
+        with:
+          dockerfile: Dockerfile
