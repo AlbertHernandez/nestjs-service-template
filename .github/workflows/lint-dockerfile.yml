@@ -13,3 +13,5 @@ jobs:
         id: hadolint
         with:
           dockerfile: Dockerfile
+      - name: Build dockerfile
+        run: docker build . -t service
