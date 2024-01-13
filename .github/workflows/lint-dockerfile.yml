@@ -18,7 +18,7 @@ jobs:
         with:
           dockerfile: Dockerfile
       - uses: marocchino/sticky-pull-request-comment@v2
-        if: github.event_name == 'pull_request'
+        if: ${{ failure() && github.event_name == 'pull_request' }}
         with:
           header: <lint-dockerfile>
           message: |
