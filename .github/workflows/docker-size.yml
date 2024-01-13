@@ -26,6 +26,9 @@ jobs:
     outputs:
       image_size: ${{ steps.docker_head.outputs.image_size }}
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
       - name: 🐳 Calculate docker image size in ${{ github.head_ref }}
         id: docker_head
         run:  |
