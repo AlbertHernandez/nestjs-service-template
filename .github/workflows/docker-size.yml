@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: 🐳 Calculate docker image size in ${{ github.ref_name }}
+        with:
+          ref: ${{ github.base_ref }}
+      - name: 🐳 Calculate docker image size in ${{ github.base_ref }}
         id: docker_branch
         run:  |
           docker build . -t service
