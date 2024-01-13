@@ -1,0 +1,27 @@
+name: 'Lint dockerfile'
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  build:
+    name: Lint dockerfile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hadolint/hadolint-action@v3
+        id: hadolint
+        with:
+          dockerfile: Dockerfile
+      - uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          header: <lint-dockerfile>
+          message: |
+            ## 🐳 Dockerfile Linter Report 🐳
+
+            ${{ steps.hadolint.outcome }}
