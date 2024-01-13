@@ -1,7 +1,6 @@
 name: 'Lint dockerfile'
 
 on:
-  pull_request:
   push:
 
 permissions:
@@ -17,13 +16,3 @@ jobs:
         id: hadolint
         with:
           dockerfile: Dockerfile
-          format: json
-      - uses: marocchino/sticky-pull-request-comment@v2
-        if: ${{ failure() && github.event_name == 'pull_request' }}
-        with:
-          header: <lint-dockerfile>
-          message: |
-            ## 🐳 Dockerfile Linter Report 🐳
-
-            ${{ steps.hadolint.outcome }}
-            ${{ env.HADOLINT_RESULTS }}
