@@ -29,8 +29,10 @@ jobs:
         id: docker-base
         run:  |
           if [ -f base-docker-image.txt ]; then
+            echo "Getting docker image from cache"
             image_size=$(<base-docker-image.txt)
           else
+            echo "Docker image not available in the cache"
             docker build . -t service
             image_size=$(docker images service | awk 'NR==2 {print $NF}')
           fi
