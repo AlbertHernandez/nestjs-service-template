@@ -48,5 +48,5 @@ jobs:
           message: |
             ## 🐳 Docker Metrics 🐳
 
-            * Size of the Docker Image in the base (${{ github.base_ref }}): **${{BASE_DOCKER_IMAGE_SIZE}}**
-            * Size of the Docker Image in this branch (${{ github.head_ref }}): **${{HEAD_DOCKER_IMAGE_SIZE}}**
+            * Size of the Docker Image in the base (${{ github.base_ref }}): **{{ env.BASE_DOCKER_IMAGE_SIZE }}**
+            * Size of the Docker Image in this branch (${{ github.head_ref }}): **{{ env.HEAD_DOCKER_IMAGE_SIZE }}**
