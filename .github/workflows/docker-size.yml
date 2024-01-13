@@ -17,7 +17,7 @@ jobs:
           ref: ${{ github.base_ref }}
       - id: commit
         uses: prompt/actions-commit-hash@v3
-      - name: Cache docker image for commit ${{ steps.commit.outputs.short }}
+      - name: 📦 Cache docker image for commit ${{ steps.commit.outputs.short }}
         uses: actions/cache@v3
         with:
           path: base-docker-image.txt
