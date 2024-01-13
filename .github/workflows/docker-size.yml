@@ -10,13 +10,13 @@ jobs:
   calculate-base:
     runs-on: ubuntu-latest
     outputs:
-      image_size: ${{ steps.docker_base.outputs.image_size }}
+      image_size: ${{ steps.docker-base.outputs.image_size }}
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.base_ref }}
       - name: 🐳 Calculate docker image size in ${{ github.base_ref }}
-        id: docker_base
+        id: docker-base
         run:  |
           docker build . -t service
           image_size=$(docker images service | awk 'NR==2 {print $NF}')
@@ -24,13 +24,13 @@ jobs:
   calculate-head:
     runs-on: ubuntu-latest
     outputs:
-      image_size: ${{ steps.docker_head.outputs.image_size }}
+      image_size: ${{ steps.docker-head.outputs.image_size }}
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
       - name: 🐳 Calculate docker image size in ${{ github.head_ref }}
-        id: docker_head
+        id: docker-head
         run:  |
           docker build . -t service
           image_size=$(docker images service | awk 'NR==2 {print $NF}')
