@@ -10,7 +10,7 @@ ENV NODE_ENV=development
 
 COPY package*.json $DIR
 
-RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $DIR/.npmrc && \
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > "$DIR/.npmrc" && \
     npm ci && \
     rm -f .npmrc
 
@@ -22,10 +22,11 @@ CMD ["npm", "run", "start:dev"]
 
 FROM base AS build
 
+# hadolint ignore=DL3018
 RUN apk update && apk add --no-cache dumb-init
 
 COPY package*.json $DIR
-RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $DIR/.npmrc && \
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > "$DIR/.npmrc" && \
     npm ci && \
     rm -f .npmrc
 
