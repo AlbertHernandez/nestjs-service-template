@@ -15,11 +15,28 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.base_ref }}
+      - name: Get commit short hash
+        id: commit
+        run: |
+          short=$(git rev-parse --short HEAD)
+          echo "short=$short" >> $GITHUB_OUTPUT
+      - name: 📦 Cache docker image for commit ${{ steps.commit.outputs.short }}
+        uses: actions/cache@v3
+        with:
+          path: base-docker-image.txt
+          key: base-docker-image-os-${{ runner.os }}-commit-${{ steps.commit.outputs.short }}
       - name: 🐳 Calculate docker image size in ${{ github.base_ref }}
         id: docker-base
         run:  |
-          docker build . -t service
-          image_size=$(docker images service | awk 'NR==2 {print $NF}')
+          if [ -f base-docker-image.txt ]; then
+            echo "Getting docker image from cache"
+            image_size=$(<base-docker-image.txt)
+          else
+            echo "Docker image not available in the cache"
+            docker build . -t service
+            image_size=$(docker images service | awk 'NR==2 {print $NF}')
+          fi
+          echo "$image_size" > base-docker-image.txt
           echo "image_size=$image_size" >> $GITHUB_OUTPUT
   calculate-head:
     runs-on: ubuntu-latest
