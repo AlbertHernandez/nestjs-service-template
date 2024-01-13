@@ -11,14 +11,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: 🐳 Calculate docker image size in the branch
+      - name: 🐳 Calculate docker image size in ${{ github.ref_name }}
         id: docker_branch
         run:  |
           docker build . -t service
           image_size=$(docker images service | awk 'NR==2 {print $NF}')
           echo "image_size_branch=$image_size" >> $GITHUB_OUTPUT
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: 🐳 Calculate docker image size in ${{ github.head_ref }}
+        id: docker_base
+        run:  |
+          docker build . -t service
+          image_size=$(docker images service | awk 'NR==2 {print $NF}')
+          echo "image_size_base=$image_size" >> $GITHUB_OUTPUT
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: <docker-image-size>
           message: |
-            🐳 Size of the Docker Image in this branch: **${{ steps.docker_branch.outputs.image_size_branch }}**
+            🐳 Size of the Docker Image in the base (${{ github.head_ref }}): **${{ steps.docker_branch.outputs.image_size_branch }}**
+            🐳 Size of the Docker Image in this branch (${{ github.ref_name }}): **${{ steps.docker_branch.outputs.image_size_branch }}**
