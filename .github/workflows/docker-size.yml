@@ -18,7 +18,7 @@ jobs:
         run:  |
           docker build . -t service
           image_size=$(docker images service | awk 'NR==2 {print $NF}')
-          echo "image_size_branch=$image_size" >> $GITHUB_OUTPUT
+          echo "base_image_size=$image_size" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
@@ -27,10 +27,10 @@ jobs:
         run:  |
           docker build . -t service
           image_size=$(docker images service | awk 'NR==2 {print $NF}')
-          echo "image_size_base=$image_size" >> $GITHUB_OUTPUT
+          echo "head_image_size=$image_size" >> $GITHUB_OUTPUT
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: <docker-image-size>
           message: |
-            🐳 Size of the Docker Image in the base (${{ github.head_ref }}): **${{ steps.docker_branch.outputs.image_size_branch }}**
-            🐳 Size of the Docker Image in this branch (${{ github.ref_name }}): **${{ steps.docker_branch.outputs.image_size_branch }}**
+            🐳 Size of the Docker Image the Base (${{ github.ref_name }}): **${{ steps.docker_branch.outputs.base_image_size }}**
+            🐳 Size of the Docker Image in this branch (${{ github.head_ref }}): **${{ steps.docker_branch.outputs.head_image_size }}**
