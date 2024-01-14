@@ -18,7 +18,6 @@ jobs:
             ##  ✅ Codebase TODO  ✅
 
             ### **📝 Title**: {{ title }}
-
             ### **🔎 Details**
 
             {{ body }}
