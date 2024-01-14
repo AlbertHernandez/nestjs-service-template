@@ -1,5 +1,6 @@
+---
 - name: feature requested
-  description: Request for a new feature
+  description: Request for a feature
   color: 0E8A16
 - name: ignore-for-release
   description: Ignore pull request for a new release
