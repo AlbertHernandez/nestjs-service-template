@@ -21,6 +21,7 @@ jobs:
 
             ### **🔎 Details**
 
+            {{ body }}
             {{ url }}
             {{ snippet }}
           AUTO_ASSIGN: true
