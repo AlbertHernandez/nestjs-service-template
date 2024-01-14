@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dotenv
-        run: curl -sSfL https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/master/install.sh | sh -s
+        run: curl -sSfL https://git.io/JLbXn | sh -s -- -b usr/local/bin v3.3.0
       - name: Run dotenv
         run: dotenv-linter
