@@ -39,6 +39,13 @@ Here we are not providing any specific architecture like hexagonal architecture 
 5. 🧪 Separate tests over production code. By default, NestJS is combining in the same folder, the `src`, the unit tests and the code we are developing for production. This is something I personally don't like so here I am separating this and having a dedicated folder for the unit tests.
 6. 🤜🤛 Combine unit and e2e test coverage. In the services we may have both type of tests, unit and e2e tests, and usually we would like to see what is the combined test coverage, so we can see the full picture.
 
+## 🤩 Other templates
+
+Are you thinking in start new projects in other frameworks or create a super fancy library? If you like this template there are others base on this you can check:
+
+- [Template for new Typescript Libraries](https://github.com/AlbertHernandez/typescript-library-template)
+- [Template for new Typescript Express Services](https://github.com/AlbertHernandez/express-typescript-service-template)
+
 ## 🧑‍💻 Developing
 
 First, we will need to create our .env file, we can create a copy from the example one:
