@@ -13,3 +13,18 @@ jobs:
       - uses: actions/checkout@v4
       - name: "TODO to Issue"
         uses: "alstr/todo-to-issue-action@v4"
+        with:
+          ISSUE_TEMPLATE: |
+            ## New Codebase TODO ✅
+
+            {{ title }}
+            {{ url }}
+
+            {{ body }}
+
+            <details><summary>Source of this issue</summary>
+
+            {{ snippet }}
+
+            </details>
+          AUTO_ASSIGN: true
