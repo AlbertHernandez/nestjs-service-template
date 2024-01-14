@@ -10,6 +10,7 @@ describe("HealthController", () => {
   beforeEach(() => {
     logger = createMock<Logger>();
     healthController = new HealthController(logger);
+    // Hello world
   });
 
   describe("run", () => {
