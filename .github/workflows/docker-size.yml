@@ -19,7 +19,7 @@ jobs:
         id: commit
         run: |
           short=$(git rev-parse --short HEAD)
-          echo "short=$short" >> $GITHUB_OUTPUT
+          echo "short=$short" >> "$GITHUB_OUTPUT"
       - name: 📦 Cache docker image for commit ${{ steps.commit.outputs.short }}
         uses: actions/cache@v3
         with:
@@ -37,7 +37,7 @@ jobs:
             image_size=$(docker images service | awk 'NR==2 {print $NF}')
           fi
           echo "$image_size" > base-docker-image.txt
-          echo "image_size=$image_size" >> $GITHUB_OUTPUT
+          echo "image_size=$image_size" >> "$GITHUB_OUTPUT"
   calculate-head:
     runs-on: ubuntu-latest
     outputs:
@@ -51,7 +51,7 @@ jobs:
         run:  |
           docker build . -t service
           image_size=$(docker images service | awk 'NR==2 {print $NF}')
-          echo "image_size=$image_size" >> $GITHUB_OUTPUT
+          echo "image_size=$image_size" >> "$GITHUB_OUTPUT"
   write-comment:
     runs-on: ubuntu-latest
     needs: [calculate-base, calculate-head]
