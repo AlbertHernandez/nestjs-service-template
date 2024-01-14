@@ -1,8 +1,11 @@
-name: Sync labels
+---
+name: 'Sync labels'
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -1,6 +1,8 @@
-name: Node
+---
+name: 'Node'
 
-on: [push]
+on:
+  push:
 
 jobs:
   run:
