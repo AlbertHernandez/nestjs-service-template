@@ -13,5 +13,5 @@ jobs:
     steps:
       - uses: actions/labeler@v5
         with:
-          configuration-path: .github/pr-scope-label.yml
+          configuration-path: .github/pr-scope-labeler.yml
           sync-labels: true
