@@ -14,6 +14,7 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
 
+  // TODO: other test for todo issue
   const configService = app.get(ConfigService);
   const port = configService.get<string>("PORT", "3000");
 
