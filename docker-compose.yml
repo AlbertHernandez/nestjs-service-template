@@ -30,3 +30,5 @@ services:
 
 volumes:
   node_modules:
+
+# Hello world
