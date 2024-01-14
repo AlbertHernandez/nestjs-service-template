@@ -20,7 +20,7 @@ async function bootstrap() {
   await app.listen(port, "0.0.0.0");
 
   const logger = app.get(Logger);
-  // TODO: hello world new todo
+  // TODO: hello world
   logger.log(`App is ready and listening on port ${port} 🚀`);
 }
 
