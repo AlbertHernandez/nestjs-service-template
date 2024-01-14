@@ -1,4 +1,5 @@
-name: docker-size
+---
+name: 'Docker size'
 
 on:
   pull_request:
@@ -27,7 +28,7 @@ jobs:
           key: base-docker-image-os-${{ runner.os }}-commit-${{ steps.commit.outputs.short }}
       - name: 🐳 Calculate docker image size in ${{ github.base_ref }}
         id: docker-base
-        run:  |
+        run: |
           if [ -f base-docker-image.txt ]; then
             echo "Getting docker image from cache"
             image_size=$(<base-docker-image.txt)
@@ -48,7 +49,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: 🐳 Calculate docker image size in ${{ github.head_ref }}
         id: docker-head
-        run:  |
+        run: |
           docker build . -t service
           image_size=$(docker images service | awk 'NR==2 {print $NF}')
           echo "image_size=$image_size" >> "$GITHUB_OUTPUT"

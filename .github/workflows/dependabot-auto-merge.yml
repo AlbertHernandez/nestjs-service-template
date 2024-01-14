@@ -1,4 +1,5 @@
-name: dependabot-auto-merge
+---
+name: 'Dependabot auto merge'
 
 on:
   pull_request:

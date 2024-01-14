@@ -1,6 +1,9 @@
-name: Greetings
+---
+name: 'Greetings'
 
-on: [pull_request, issues]
+on:
+  pull_request:
+  issues:
 
 jobs:
   greeting:
@@ -26,4 +29,3 @@ jobs:
             We will review it as soon as we can :D
 
             Please check out our contributing guidelines in the meantime 📃
-
