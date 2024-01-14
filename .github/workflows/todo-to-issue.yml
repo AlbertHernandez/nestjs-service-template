@@ -15,17 +15,13 @@ jobs:
         uses: "alstr/todo-to-issue-action@v4"
         with:
           ISSUE_TEMPLATE: |
-            #  ✅ Codebase TODO  ✅
+            ##  ✅ Codebase TODO  ✅
 
-            ** 📝 Title**: {{ title }}
+            ### **📝 Title**: {{ title }}
 
-            ** 🔗 URL**:
+            ### **🔎 Details**
+
             {{ url }}
-
-            <details><summary>**📍 Source of this issue**</summary>
-
             {{ snippet }}
-
-            </details>
           AUTO_ASSIGN: true
           IGNORE: "./github/workflows/todo-to-issue-yml"
