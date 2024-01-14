@@ -8,7 +8,7 @@
 - name: todo
   description: Action we need to perform at some moment
   color: ededed
-- name: service
+- name: source
   description: Indicates the scope is related to the own service logic
   color: ededed
 - name: tests
@@ -22,6 +22,9 @@
   color: ededed
 - name: CI/CD
   description: Indicates the change is related to CI/CD workflows
+  color: ededed
+- name: github settings
+  description: Indicates the change is related to github settings
   color: ededed
 - name: feature
   description: Feature added in the PR
