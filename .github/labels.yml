@@ -8,6 +8,21 @@
 - name: todo
   description: Action we need to perform at some moment
   color: ededed
+- name: service
+  description: Indicates the scope is related to the own service logic, for example a new feature, bugfix...
+  color: ededed
+- name: tests
+  description: Indicates the scope is related to the tests
+  color: ededed
+- name: configuration
+  description: Indicates the scope is related to the configuration
+  color: ededed
+- name: build
+  description: Indicates the change is related to the build
+  color: ededed
+- name: CI/CD
+  description: Indicates the change is related to CI/CD workflows
+  color: ededed
 - name: feature
   description: Feature added in the PR
   color: ededed
