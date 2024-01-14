@@ -6,5 +6,5 @@ const config = {
   ],
   "*.{md,json}": "prettier --write",
 };
-
+// Hello world
 module.exports = config;
