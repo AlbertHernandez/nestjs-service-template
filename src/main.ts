@@ -19,7 +19,6 @@ async function bootstrap() {
 
   await app.listen(port, "0.0.0.0");
 
-  // TODO: this is a test to see how it works todo to issues github action and what happens if I change it
   const logger = app.get(Logger);
   logger.log(`App is ready and listening on port ${port} 🚀`);
 }
