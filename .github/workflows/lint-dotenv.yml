@@ -1,0 +1,15 @@
+name: 'Lint dotenv'
+
+on:
+  push:
+
+jobs:
+  build:
+    name: Lint dotenv
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dotenv
+        run: curl -sSfL https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/master/install.sh | sh -s
+      - name: Run dotenv
+        run: dotenv-linter
