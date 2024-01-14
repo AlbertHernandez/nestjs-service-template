@@ -1,45 +1,20 @@
-# How to become a contributor and submit your own code
+## 👏 Contributing
 
-**Table of contents**
+As a contributor, here are the guidelines you should follow:
 
-- [Contributor License Agreements](#contributor-license-agreements)
-- [Contributing a patch](#contributing-a-patch)
-- [Running the tests](#running-the-tests)
+- [👔 Code of Conduct](CODE_OF_CONDUCT.md)
+- [⭐️ Steps](#-steps)
+- [⭐️ Developing](README.md#-developing)
 
-## Contributor License Agreements
+---
 
-All contributions are welcome, just follow the guide below
+## ⭐️ Steps
 
-## Contributing A Patch
+1. Use the issue tracker to make sure the feature request or bug has not been already reported 🔎.
+2. Submit an issue describing your proposed change to the repo 💡.
+3. The repo owner will respond to your issue as soon as we can 💪.
+4. If your proposal change is accepted, fork the repo, develop and test your code changes 🤝.
+5. Ensure that your code adheres to the existing style in the code 💅🏻.
+6. Title your pull request following [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) styling 🪄.
 
-1. Submit an issue describing your proposed change to the repo in question.
-2. The repo owner will respond to your issue promptly.
-3. Fork the desired repo, develop and test your code changes.
-4. Ensure that your code adheres to the existing style in the code to which
-   you are contributing.
-5. Ensure that your code has an appropriate set of tests which all pass.
-6. Title your pull request following [Conventional Commits](https://www.conventionalcommits.org/) styling.
-7. Submit a pull request.
-
-### Before you begin
-
-1. Install node 20
-2. Install npm 10
-
-## Running the tests
-
-1.  Install dependencies:
-
-        npm run install
-
-2.  Run the tests:
-
-        npm run test
-
-3.  Lint (and maybe fix) any changes:
-
-        npm run lint
-
-4.  Run the build:
-
-        npm run build
+---
