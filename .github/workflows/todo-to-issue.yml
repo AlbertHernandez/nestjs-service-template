@@ -16,9 +16,14 @@ jobs:
         with:
           ISSUE_TEMPLATE: |
             ## New Codebase TODO ✅
-
+            ### Title
             {{ title }}
+
+            ### URL
             {{ url }}
+
+            ### Body
+            {{ body }}
 
             <details><summary>Source of this issue</summary>
 
