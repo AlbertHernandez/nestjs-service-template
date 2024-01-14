@@ -9,7 +9,7 @@
   description: Action we need to perform at some moment
   color: ededed
 - name: service
-  description: Indicates the scope is related to the own service logic, for example a new feature, bugfix...
+  description: Indicates the scope is related to the own service logic
   color: ededed
 - name: tests
   description: Indicates the scope is related to the tests
