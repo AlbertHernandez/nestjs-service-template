@@ -12,4 +12,4 @@ jobs:
       - name: Install dotenv
         run: curl -sSfL https://git.io/JLbXn | sh -s -- -b usr/local/bin v3.3.0
       - name: Run dotenv
-        run: dotenv-linter
+        run: usr/local/bin/dotenv-linter
