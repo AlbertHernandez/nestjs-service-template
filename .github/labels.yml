@@ -5,6 +5,9 @@
 - name: ignore-for-release
   description: Ignore pull request for a new release
   color: ededed
+- name: todo
+  description: Action we need to perform at some moment
+  color: ededed
 - name: feature
   description: Feature added in the PR
   color: ededed
