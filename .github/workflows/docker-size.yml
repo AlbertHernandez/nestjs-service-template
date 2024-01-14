@@ -18,7 +18,7 @@ jobs:
       - name: Get commit short hash
         id: commit
         run: |
-          short=$(git rev-parse --short HEAD)
+          short="$(git rev-parse --short HEAD)"
           echo "short=$short" >> $GITHUB_OUTPUT
       - name: 📦 Cache docker image for commit ${{ steps.commit.outputs.short }}
         uses: actions/cache@v3
