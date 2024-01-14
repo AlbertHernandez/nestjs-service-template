@@ -20,11 +20,10 @@ jobs:
             {{ title }}
             {{ url }}
 
-            {{ body }}
-
             <details><summary>Source of this issue</summary>
 
             {{ snippet }}
 
             </details>
           AUTO_ASSIGN: true
+          IGNORE: "./github/workflows/todo-to-issue-yml"
