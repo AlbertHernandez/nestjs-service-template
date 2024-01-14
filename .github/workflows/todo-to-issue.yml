@@ -25,4 +25,4 @@ jobs:
             {{ url }}
             {{ snippet }}
           AUTO_ASSIGN: true
-          IGNORE: "./github/workflows/todo-to-issue.yml"
+          IGNORE: ".github/workflows/todo-to-issue.yml"
