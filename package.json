@@ -55,7 +55,7 @@
     "@swc/jest": "^0.2.29",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.7",
-    "@types/node": "^20.11.0",
+    "@types/node": "^20.11.3",
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.18.1",
