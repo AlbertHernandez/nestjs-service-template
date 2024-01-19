@@ -3,4 +3,6 @@
 !/package-lock.json
 !/tsconfig.prod.json
 !/tsconfig.json
+!/.swcrc
+!/nest-cli.json
 !/src

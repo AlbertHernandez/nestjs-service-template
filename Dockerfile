@@ -15,6 +15,8 @@ RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > "$DIR/.npmrc" && \
     rm -f .npmrc
 
 COPY tsconfig*.json $DIR
+COPY .swcrc $DIR
+COPY nest-cli.json $DIR
 COPY src $DIR/src
 
 EXPOSE $PORT
@@ -30,6 +32,8 @@ RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > "$DIR/.npmrc" && \
     rm -f .npmrc
 
 COPY tsconfig*.json $DIR
+COPY .swcrc $DIR
+COPY nest-cli.json $DIR
 COPY src $DIR/src
 
 RUN npm run build && \
