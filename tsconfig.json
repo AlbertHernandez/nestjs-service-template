@@ -14,16 +14,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "@core/*": [
-        "src/core/*"
-      ],
-      "@app/*": [
-        "src/*"
-      ]
+      "@src/*": ["src/*"],
+      "@core/*": ["src/core/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "exclude": ["node_modules", "dist"]
 }

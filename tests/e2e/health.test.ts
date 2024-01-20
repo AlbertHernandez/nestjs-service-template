@@ -1,9 +1,9 @@
-import { AppModule } from "@app/app.module";
 import {
   FastifyAdapter,
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
 import { Test, TestingModule } from "@nestjs/testing";
+import { AppModule } from "@src/app.module";
 import request from "supertest";
 
 describe("Health", () => {

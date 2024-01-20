@@ -17,9 +17,7 @@ const config: JestConfigWithTsJest = {
   coverageReporters: ["json", "lcov", "text"],
   roots: ["<rootDir>"],
   modulePaths: [compilerOptions.baseUrl],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: "<rootDir>/",
-  }),
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
 };
 
 export default config;
