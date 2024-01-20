@@ -1,12 +1,11 @@
-import type { JestConfigWithTsJest } from "ts-jest";
-import { pathsToModuleNameMapper } from "ts-jest";
+import fs from "fs-extra";
+import type { Config } from "jest";
 
-import { compilerOptions } from "./tsconfig.json";
+const swcConfig = JSON.parse(fs.readFileSync(`${__dirname}/.swcrc`, "utf-8"));
 
-const config: JestConfigWithTsJest = {
-  preset: "ts-jest",
+const config: Config = {
   transform: {
-    "^.+\\.(t|j)s$": "@swc/jest",
+    "^.+\\.(t|j)s$": ["@swc/jest", swcConfig],
   },
   testEnvironment: "node",
   cacheDirectory: ".tmp/jestCache",
@@ -14,10 +13,6 @@ const config: JestConfigWithTsJest = {
   collectCoverageFrom: ["src/**/*.ts"],
   setupFiles: ["<rootDir>.jest/set-env-vars.ts"],
   clearMocks: true,
-  coverageReporters: ["json", "lcov", "text"],
-  roots: ["<rootDir>"],
-  modulePaths: [compilerOptions.baseUrl],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
 };
 
 export default config;
