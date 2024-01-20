@@ -1,6 +1,10 @@
-import type { Config } from "jest";
+import type { JestConfigWithTsJest } from "ts-jest";
+import { pathsToModuleNameMapper } from "ts-jest";
 
-const config: Config = {
+import { compilerOptions } from "./tsconfig.json";
+
+const config: JestConfigWithTsJest = {
+  preset: "ts-jest",
   transform: {
     "^.+\\.(t|j)s$": "@swc/jest",
   },
@@ -11,6 +15,11 @@ const config: Config = {
   setupFiles: ["<rootDir>.jest/set-env-vars.ts"],
   clearMocks: true,
   coverageReporters: ["json", "lcov", "text"],
+  roots: ["<rootDir>"],
+  modulePaths: [compilerOptions.baseUrl],
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: "<rootDir>/",
+  }),
 };
 
 export default config;
