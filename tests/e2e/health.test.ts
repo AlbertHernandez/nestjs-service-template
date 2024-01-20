@@ -1,11 +1,10 @@
+import { AppModule } from "@app/app.module";
 import {
   FastifyAdapter,
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
 import { Test, TestingModule } from "@nestjs/testing";
 import request from "supertest";
-
-import { AppModule } from "@/app.module";
 
 describe("Health", () => {
   let app: NestFastifyApplication;

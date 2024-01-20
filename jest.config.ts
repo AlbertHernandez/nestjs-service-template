@@ -15,7 +15,7 @@ const config: JestConfigWithTsJest = {
   setupFiles: ["<rootDir>.jest/set-env-vars.ts"],
   clearMocks: true,
   coverageReporters: ["json", "lcov", "text"],
-  // roots: ["<rootDir>"],
+  roots: ["<rootDir>"],
   modulePaths: [compilerOptions.baseUrl],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: "<rootDir>/",
