@@ -12,9 +12,9 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "paths": {
       "@/*": ["src/*"],
     },
   },
-  "exclude": ["node_modules", "dist"],
 }
