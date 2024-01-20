@@ -25,7 +25,7 @@
   "scripts": {
     "build": "npm run build:clean && nest build --path tsconfig.prod.json",
     "start": "node dist/main.js",
-    "start:dev": "tsnd --inspect=0.0.0.0:9229 --respawn src/main.ts",
+    "start:dev": "tsnd -r tsconfig-paths/register --inspect=0.0.0.0:9229 --respawn src/main.ts",
     "test": "rimraf coverage .nyc_output && concurrently 'npm:test:unit' 'npm:test:e2e' && npm run coverage:merge",
     "test:unit": "jest tests/src --coverageDirectory coverage/unit",
     "test:e2e": "jest tests/e2e --coverageDirectory coverage/e2e",
@@ -73,6 +73,7 @@
     "rimraf": "^5.0.5",
     "source-map-support": "^0.5.21",
     "supertest": "^6.3.4",
+    "ts-jest": "^29.1.1",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
