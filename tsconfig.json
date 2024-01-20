@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "module": "commonjs",
     "target": "ES2021",
     "esModuleInterop": true,
@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "@/*": ["src/*"],
-    },
-  },
+      "@/*": [
+        "src/*"
+      ]
+    }
+  }
 }
