@@ -12,12 +12,14 @@
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:prettier/recommended",
     "plugin:jest/recommended",
-    "plugin:jest/style"
+    "plugin:jest/style",
+    "plugin:unicorn/recommended"
   ],
   "rules": {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "unicorn/prefer-node-protocol": "error"
+    "unicorn/prefer-module": "off",
+    "unicorn/prefer-top-level-await": "off"
   },
   "overrides": [
     {
