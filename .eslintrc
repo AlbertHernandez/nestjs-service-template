@@ -44,6 +44,12 @@
       }
     },
     {
+      "files": ["src/**"],
+      "rules": {
+        "no-console": "warn"
+      }
+    },
+    {
       "files": ["tests/**"],
       "plugins": ["jest"],
       "rules": {
