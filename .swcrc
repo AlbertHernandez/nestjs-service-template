@@ -14,7 +14,8 @@
     "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"],
-      "@core/*": ["src/core/*"]
+      "@core/*": ["src/core/*"],
+      "@contexts/*": ["src/contexts/*"]
     }
   },
   "minify": false

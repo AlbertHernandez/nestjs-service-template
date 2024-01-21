@@ -1,6 +1,7 @@
 import { execSync } from "child_process";
-import fs from "fs-extra";
 import path from "path";
+
+import fs from "fs-extra";
 
 const REPORTS_PATH = path.resolve(process.cwd(), ".nyc_output");
 const COVERAGE_PATH = path.resolve(process.cwd(), "coverage");

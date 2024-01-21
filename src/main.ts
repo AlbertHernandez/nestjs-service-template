@@ -23,4 +23,11 @@ async function bootstrap() {
   logger.log(`App is ready and listening on port ${port} 🚀`);
 }
 
-bootstrap();
+bootstrap().catch(handleError);
+
+function handleError(error: unknown) {
+  console.error(error);
+  process.exit(1);
+}
+
+process.on("uncaughtException", handleError);

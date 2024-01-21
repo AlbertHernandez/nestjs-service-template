@@ -3,8 +3,9 @@ import {
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
 import { Test, TestingModule } from "@nestjs/testing";
-import { AppModule } from "@src/app.module";
 import request from "supertest";
+
+import { AppModule } from "@src/app.module";
 
 describe("Health", () => {
   let app: NestFastifyApplication;
@@ -25,10 +26,9 @@ describe("Health", () => {
     await app.close();
   });
 
-  it("/GET health", () => {
-    return request(app.getHttpServer())
-      .get("/health")
-      .expect(200)
-      .expect({ status: "ok" });
+  it("/GET health", async () => {
+    const response = await request(app.getHttpServer()).get("/health");
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({ status: "ok" });
   });
 });

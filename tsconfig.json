@@ -15,7 +15,8 @@
     "resolveJsonModule": true,
     "paths": {
       "@src/*": ["src/*"],
-      "@core/*": ["src/core/*"]
+      "@core/*": ["src/core/*"],
+      "@contexts/*": ["src/contexts/*"]
     }
   },
   "exclude": ["node_modules", "dist"]
