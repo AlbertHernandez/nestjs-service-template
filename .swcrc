@@ -15,6 +15,7 @@
     "paths": {
       "@src/*": ["src/*"],
       "@core/*": ["src/core/*"],
+      "@shared/*": ["src/shared/*"],
       "@contexts/*": ["src/contexts/*"]
     },
     "target": "es2022"
