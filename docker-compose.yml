@@ -11,6 +11,14 @@ services:
         - PORT=${PORT}
     ports:
       - "${PORT}:${PORT}"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "512m"
+        reservations:
+          cpus: "0.25"
+          memory: "256m"
 
   my-service-dev:
     container_name: my-service-dev
@@ -27,6 +35,14 @@ services:
     volumes:
       - .:/project
       - node_modules:/project/node_modules/
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "512m"
+        reservations:
+          cpus: "0.25"
+          memory: "256m"
 
 volumes:
   node_modules:
