@@ -3,6 +3,7 @@ import {
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
 import { Test, TestingModule } from "@nestjs/testing";
+import * as nock from "nock";
 import request from "supertest";
 
 import { AppModule } from "@src/app.module";
@@ -20,10 +21,17 @@ describe("Health", () => {
     );
     await app.init();
     await app.getHttpAdapter().getInstance().ready();
+    nock.disableNetConnect();
+    nock.enableNetConnect("127.0.0.1");
+  });
+
+  afterEach(() => {
+    nock.cleanAll();
   });
 
   afterAll(async () => {
     await app.close();
+    nock.enableNetConnect();
   });
 
   it("/GET health", async () => {
