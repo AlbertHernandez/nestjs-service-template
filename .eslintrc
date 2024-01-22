@@ -20,7 +20,8 @@
     "simple-import-sort/exports": "error",
     "unicorn/prefer-module": "off",
     "unicorn/prefer-top-level-await": "off",
-    "unicorn/prevent-abbreviations": "off"
+    "unicorn/prevent-abbreviations": "off",
+    "no-console": "warn"
   },
   "overrides": [
     {
@@ -48,9 +49,9 @@
       }
     },
     {
-      "files": ["src/**"],
+      "files": ["scripts/**"],
       "rules": {
-        "no-console": "warn"
+        "no-console": "off"
       }
     },
     {
