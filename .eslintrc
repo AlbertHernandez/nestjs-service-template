@@ -14,7 +14,8 @@
     "plugin:prettier/recommended",
     "plugin:jest/recommended",
     "plugin:jest/style",
-    "plugin:unicorn/recommended"
+    "plugin:unicorn/recommended",
+    "plugin:node/recommended"
   ],
   "rules": {
     "simple-import-sort/imports": "error",
@@ -22,7 +23,14 @@
     "unicorn/prefer-module": "off",
     "unicorn/prefer-top-level-await": "off",
     "unicorn/prevent-abbreviations": "off",
-    "no-console": "warn"
+    "no-console": "warn",
+    "node/no-missing-import": "off",
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      { "ignores": ["modules"] }
+    ],
+    "node/no-unpublished-import": "off",
+    "no-process-exit": "off"
   },
   "overrides": [
     {
