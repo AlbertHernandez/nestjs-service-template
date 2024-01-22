@@ -16,7 +16,8 @@
       "@src/*": ["src/*"],
       "@core/*": ["src/core/*"],
       "@contexts/*": ["src/contexts/*"]
-    }
+    },
+    "target": "es2022"
   },
   "minify": false
 }
