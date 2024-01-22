@@ -1,7 +1,7 @@
 import { createMock } from "@golevelup/ts-jest";
 import { Logger } from "@nestjs/common";
 
-import { HealthController } from "@core/health/health.controller";
+import { HealthController } from "@core/health/api/health.controller";
 
 describe("HealthController", () => {
   let healthController: HealthController;
