@@ -30,7 +30,7 @@
     "test:unit": "jest tests/src --coverageDirectory coverage/unit",
     "test:e2e": "jest tests/e2e --coverageDirectory coverage/e2e",
     "coverage:merge": "ts-node scripts/merge-coverage.ts",
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "eslint --ignore-path .gitignore . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
     "build:clean": "rimraf dist; exit 0"
@@ -68,7 +68,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unicorn": "^50.0.1",
     "fs-extra": "^11.2.0",
-    "husky": "^8.0.3",
+    "husky": "^9.0.5",
     "jest": "^29.7.0",
     "lint-staged": "^15.0.2",
     "nock": "^13.5.0",
