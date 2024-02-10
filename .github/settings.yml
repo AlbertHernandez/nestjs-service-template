@@ -1,7 +1,7 @@
 ---
 repository:
   name: nestjs-service-template
-  description: Template for new services based on NestJS with the Best Practices and Ready for Production.
+  description: Template for new services based on NestJS with the Best Practices and Ready for Production
   homepage: github.com/AlbertHernandez/nestjs-service-template
   topics: nodejs, template, typescript, nestjs template, nestjs
   has_wiki: false
