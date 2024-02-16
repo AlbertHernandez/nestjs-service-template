@@ -48,7 +48,7 @@
           - .yamllint.yml
           - .commitlint.config.js
           - jest.config.ts
-          - lint-staged.config.js
+          - commitlint.config.ts
           - nest-cli.json
           - nyc.config.js
           - prettier.config.js
