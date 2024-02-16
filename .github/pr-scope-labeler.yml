@@ -9,7 +9,7 @@
       - any-glob-to-any-file:
           - tests/**
           - .jest/**
-          - scripts/merge-coverage.ts
+          - scripts/calculate-global-test-coverage.ts
           - jest.config.ts
           - nyc.config.js
 
