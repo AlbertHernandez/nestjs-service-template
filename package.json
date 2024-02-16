@@ -27,7 +27,7 @@
     "start": "node dist/main.js",
     "dev": "tsnd -r tsconfig-paths/register --inspect=0.0.0.0:9229 --respawn src/main.ts",
     "test": "rimraf coverage .nyc_output && concurrently 'npm:test:unit' 'npm:test:e2e' && npm run coverage:merge",
-    "test:unit": "jest tests/src --coverageDirectory coverage/unit",
+    "test:unit": "jest tests/unit --coverageDirectory coverage/unit",
     "test:e2e": "jest tests/e2e --coverageDirectory coverage/e2e",
     "coverage:merge": "ts-node scripts/merge-coverage.ts",
     "prepare": "husky",
