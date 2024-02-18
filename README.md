@@ -47,6 +47,7 @@ Are you thinking in start new projects in other frameworks or create a super fan
 
 - [Template for new Typescript Libraries](https://github.com/AlbertHernandez/typescript-library-template)
 - [Template for new Typescript Express Services](https://github.com/AlbertHernandez/express-typescript-service-template)
+- [Template for new GitHub Actions based on NodeJS](https://github.com/AlbertHernandez/github-action-nodejs-template)
 
 ## 🧑‍💻 Developing
 
