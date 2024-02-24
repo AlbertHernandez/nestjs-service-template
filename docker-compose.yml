@@ -32,8 +32,8 @@ services:
       - "${PORT:-3000}:${PORT:-3000}"
       - "9229:9229"
     volumes:
-      - .:/project
-      - node_modules:/project/node_modules/
+      - .:/app
+      - node_modules:/app/node_modules/
     deploy:
       resources:
         limits:

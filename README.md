@@ -77,7 +77,7 @@ Now, you should be able to start debugging configuring using your IDE. For examp
       "name": "Attach to docker",
       "restart": true,
       "port": 9229,
-      "remoteRoot": "/project"
+      "remoteRoot": "/app"
     }
   ]
 }
