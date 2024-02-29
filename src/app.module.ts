@@ -6,6 +6,7 @@ import { LoggerModule } from "@core/logger/logger.module";
 
 import { UserModule } from "@contexts/users/user.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { TestProductModule } from './test-product/test-product.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
     LoggerModule,
     HealthModule,
     UserModule,
+    TestProductModule,
   ],
 })
 
