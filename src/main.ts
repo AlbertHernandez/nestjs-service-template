@@ -31,5 +31,6 @@ function handleError(error: unknown) {
   // eslint-disable-next-line unicorn/no-process-exit
   process.exit(1);
 }
+console.log(process.env);
 
 process.on("uncaughtException", handleError);

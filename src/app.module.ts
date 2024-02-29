@@ -5,13 +5,30 @@ import { HealthModule } from "@core/health/health.module";
 import { LoggerModule } from "@core/logger/logger.module";
 
 import { UserModule } from "@contexts/users/user.module";
+import { TypeOrmModule } from "@nestjs/typeorm";
 
 @Module({
   imports: [
+    TypeOrmModule.forRoot({
+      type: "postgres",
+      host: process.env.DB_HOST,
+      port: +process.env.DB_PORT,
+      database: process.env.DB_NAME,
+      username: process.env.DB_USERNAME,
+      password: String(process.env.DB_PASSWORD),
+      autoLoadEntities: true,
+      // Nota: User esto solo en development.
+      // En producción usar migraciones.
+      synchronize: true,
+
+    }),
     ConfigModule.forRoot({ isGlobal: true, cache: true }),
     LoggerModule,
     HealthModule,
     UserModule,
   ],
 })
-export class AppModule {}
+
+export class AppModule {
+
+}

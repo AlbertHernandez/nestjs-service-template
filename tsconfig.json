@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strictNullChecks": false,
     "baseUrl": ".",
     "module": "commonjs",
     "target": "ES2022",
