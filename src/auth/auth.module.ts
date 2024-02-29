@@ -6,15 +6,19 @@ import { User } from './entities/user.entity';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { JwtStrategy } from './strategies/jwt.strategy';
 @Module({
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, JwtStrategy],
   imports: [
     TypeOrmModule.forFeature([User]),
     PassportModule.register({ defaultStrategy: 'jwt' }),
+    ConfigModule,
+    // No confundir con`JwtModule.register` sincrono  que
     JwtModule.registerAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
+      // Definido asincrono para extender su funcionalidad en el futuro.
       useFactory: async (configService: ConfigService) => {
         // Dev-Nota: Tratar de acceder a las variables de entorno con el método get de la instancia de ConfigService.
         return {
@@ -25,6 +29,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     }),
   ],
   // Esto hace el servicio auth.service.ts disponible para otros módulos.
-  exports: [TypeOrmModule]
+  exports: [TypeOrmModule, JwtStrategy, PassportModule, JwtModule]
 })
 export class AuthModule { }
