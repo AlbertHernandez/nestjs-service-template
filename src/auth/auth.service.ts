@@ -100,5 +100,9 @@ export class AuthService {
 
   }
 
+  testAuthorization() {
+    return "This is a private route and it uses casl authorization.";
+  }
+
 
 }

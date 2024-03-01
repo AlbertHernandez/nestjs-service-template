@@ -21,6 +21,11 @@ export class User {
     fullName: string;
 
     @Column('bool', {
+        default: false,
+    })
+    isAdmin: boolean;
+
+    @Column('bool', {
         default: true
     })
     isActive: boolean;
