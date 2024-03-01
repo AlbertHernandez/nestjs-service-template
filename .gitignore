@@ -12,6 +12,8 @@ coverage/
 /node_modules
 /build
 
+docs/
+
 postgres/
 
 # Logs
