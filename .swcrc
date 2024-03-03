@@ -17,6 +17,7 @@
       "@core/*": ["src/core/*"],
       "@shared/*": ["src/shared/*"],
       "@contexts/*": ["src/contexts/*"]
+      "@tests/*": ["tests/*"]
     },
     "target": "es2022"
   },
