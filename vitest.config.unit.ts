@@ -1,20 +1,9 @@
 import swc from "unplugin-swc";
-import { loadEnv } from "vite";
 import { defineConfig } from "vitest/config";
 
+import { createVitestTestConfig } from "./create-vitest-test-config";
+
 export default defineConfig({
-  test: {
-    globals: true,
-    isolate: false,
-    include: ["tests/unit/**/*.test.ts"],
-    env: loadEnv("test", process.cwd(), ""),
-    coverage: {
-      enabled: true,
-      provider: "istanbul",
-      reporter: ["text", "json", "html"],
-      reportsDirectory: "coverage/unit",
-      include: ["src/**/*.ts"],
-    },
-  },
+  test: createVitestTestConfig("unit"),
   plugins: [swc.vite()],
 });
