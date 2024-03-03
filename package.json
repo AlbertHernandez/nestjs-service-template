@@ -27,7 +27,7 @@
     "start": "node dist/main.js",
     "dev": "tsnd -r tsconfig-paths/register --inspect=0.0.0.0:9229 --respawn src/main.ts",
     "test": "rimraf coverage .nyc_output && concurrently 'npm:test:unit' 'npm:test:e2e' && npm run calculate-global-test-coverage",
-    "test:unit": "vitest run --config ./vitest.config.unit.ts",
+    "test:unit": "vitest run --config vitest.config.ts",
     "test:e2e": "vitest run --config ./vitest.config.e2e.ts",
     "calculate-global-test-coverage": "ts-node scripts/calculate-global-test-coverage.ts",
     "prepare": "husky",
