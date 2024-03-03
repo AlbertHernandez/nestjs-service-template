@@ -8,9 +8,9 @@
   - changed-files:
       - any-glob-to-any-file:
           - tests/**
-          - .jest/**
+          - .env.test
           - scripts/calculate-global-test-coverage.ts
-          - jest.config.ts
+          - vitest.config.**.ts
           - nyc.config.js
 
 📝 Documentation:
@@ -47,7 +47,7 @@
           - .swcrc
           - .yamllint.yml
           - .commitlint.config.js
-          - jest.config.ts
+          - vitest.config.**.ts
           - commitlint.config.ts
           - nest-cli.json
           - nyc.config.js

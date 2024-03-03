@@ -18,7 +18,8 @@
       "@core/*": ["src/core/*"],
       "@shared/*": ["src/shared/*"],
       "@contexts/*": ["src/contexts/*"]
-    }
+    },
+    "types": ["vitest/globals"]
   },
   "exclude": ["node_modules", "dist"]
 }
