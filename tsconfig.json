@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "module": "commonjs",
-    "target": "ES2022",
+    "target": "es2022",
     "esModuleInterop": true,
     "strict": true,
     "outDir": "dist",
@@ -17,8 +17,10 @@
       "@src/*": ["src/*"],
       "@core/*": ["src/core/*"],
       "@shared/*": ["src/shared/*"],
-      "@contexts/*": ["src/contexts/*"]
-    }
+      "@contexts/*": ["src/contexts/*"],
+      "@tests/*": ["tests/*"]
+    },
+    "types": ["vitest/globals"]
   },
   "exclude": ["node_modules", "dist"]
 }

@@ -23,7 +23,11 @@ jobs:
           cache: npm
       - name: Install dependencies 📥
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm ci
+        run: |
+          # Bellow npm install is a workaround for https://github.com/swc-project/swc/issues/5616#issuecomment-1651214641
+          npm install --save-optional \
+            "@swc/core-linux-x64-gnu@1" \
+            "@swc/core-linux-x64-musl@1"
       - name: Build typescript 📦
         run: npm run build && find dist/main.js
       - name: Lint code 💅
