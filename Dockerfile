@@ -28,7 +28,17 @@ RUN apk update && apk add --no-cache dumb-init=1.2.5-r2
 
 COPY package*.json .
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ".npmrc" && \
-    npm ci && \
+    npm install --save-optional \
+        "@swc/core-darwin-arm64" \
+        "@swc/core-darwin-x64" \
+        "@swc/core-linux-arm-gnueabihf" \
+        "@swc/core-linux-arm64-gnu" \
+        "@swc/core-linux-arm64-musl" \
+        "@swc/core-linux-x64-gnu" \
+        "@swc/core-linux-x64-musl" \
+        "@swc/core-win32-arm64-msvc" \
+        "@swc/core-win32-ia32-msvc" \
+        "@swc/core-win32-x64-msvc" && \
     rm -f .npmrc
 
 COPY tsconfig*.json .
