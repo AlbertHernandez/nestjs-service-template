@@ -28,7 +28,7 @@ RUN apk update && apk add --no-cache dumb-init=1.2.5-r2
 
 COPY package*.json .
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ".npmrc" && \
-    npm install && \
+    npm ci && \
     rm -f .npmrc
 
 COPY tsconfig*.json .
