@@ -30,16 +30,8 @@ COPY package*.json .
 # Bellow npm install is a workaround for https://github.com/swc-project/swc/issues/5616#issuecomment-1651214641
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ".npmrc" && \
     npm install --save-optional \
-        "@swc/core-darwin-arm64" \
-        "@swc/core-darwin-x64" \
-        "@swc/core-linux-arm-gnueabihf" \
-        "@swc/core-linux-arm64-gnu" \
-        "@swc/core-linux-arm64-musl" \
         "@swc/core-linux-x64-gnu" \
-        "@swc/core-linux-x64-musl" \
-        "@swc/core-win32-arm64-msvc" \
-        "@swc/core-win32-ia32-msvc" \
-        "@swc/core-win32-x64-msvc" && \
+        "@swc/core-linux-x64-musl" && \
     rm -f .npmrc
 
 COPY tsconfig*.json .
