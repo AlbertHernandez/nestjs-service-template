@@ -1,9 +1,7 @@
 import { loadEnv } from "vite";
 import { InlineConfig } from "vitest";
 
-export const createVitestTestConfig = (
-  testingType: "unit" | "e2e",
-): InlineConfig => {
+export const createVitestTestConfig = (testingType: string): InlineConfig => {
   return {
     root: "./",
     globals: true,
