@@ -28,7 +28,7 @@ RUN apk update && apk add --no-cache dumb-init=1.2.5-r2
 
 COPY package*.json .
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ".npmrc" && \
-    npm install --save-optional \
+    npm ci --save-optional \
         "@swc/core-darwin-arm64" \
         "@swc/core-darwin-x64" \
         "@swc/core-linux-arm-gnueabihf" \
