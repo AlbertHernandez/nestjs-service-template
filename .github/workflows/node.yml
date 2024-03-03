@@ -26,8 +26,16 @@ jobs:
         run: |
           # Bellow npm install is a workaround for https://github.com/swc-project/swc/issues/5616#issuecomment-1651214641
           npm install --save-optional \
-            "@swc/core-linux-x64-gnu@1" \
-            "@swc/core-linux-x64-musl@1"
+            "@swc/core-darwin-arm64" \
+            "@swc/core-darwin-x64" \
+            "@swc/core-linux-arm-gnueabihf" \
+            "@swc/core-linux-arm64-gnu" \
+            "@swc/core-linux-arm64-musl" \
+            "@swc/core-linux-x64-gnu" \
+            "@swc/core-linux-x64-musl" \
+            "@swc/core-win32-arm64-msvc" \
+            "@swc/core-win32-ia32-msvc" \
+            "@swc/core-win32-x64-msvc"
       - name: Build typescript 📦
         run: npm run build && find dist/main.js
       - name: Lint code 💅
