@@ -7,6 +7,7 @@ export const createVitestTestConfig = (
   return {
     globals: true,
     isolate: false,
+    passWithNoTests: true,
     include: [`tests/${testingType}/**/*.test.ts`],
     env: loadEnv("test", process.cwd(), ""),
     coverage: {
