@@ -22,10 +22,23 @@ export class AuthController {
     return this.authService.create(createUserDto);
   }
 
+  // Email Login.
   @Post('login')
   login(@Body() loginUserDto: LoginUserDto) {
 
     return this.authService.login(loginUserDto);
+  }
+
+  // Google Login.
+  @Get()
+  @UseGuards(AuthGuard('google'))
+  async googleAuth(@Req() req: any): Promise<void> { }
+
+  // Google Login Redirect.
+  @Get('redirect')
+  @UseGuards(AuthGuard('google'))
+  googleAuthRedirect(@Req() req: any) {
+    return this.authService.googleLogin(req);
   }
 
   @Get('private')
