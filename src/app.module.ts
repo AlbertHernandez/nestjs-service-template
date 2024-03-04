@@ -9,6 +9,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { TestProductModule } from './test-product/test-product.module';
 import { SeedModule } from './seed/seed.module';
 import { AuthModule } from './auth/auth.module';
+import { AbilityModule } from './ability/ability.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { AuthModule } from './auth/auth.module';
     TestProductModule,
     SeedModule,
     AuthModule,
+    AbilityModule,
   ],
 })
 
