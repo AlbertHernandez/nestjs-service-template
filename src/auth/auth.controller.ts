@@ -35,7 +35,7 @@ export class AuthController {
   async googleAuth(@Req() req: any): Promise<void> { }
 
   // Google Login Redirect.
-  @Get('redirect')
+  @Get('google/redirect')
   @UseGuards(AuthGuard('google'))
   googleAuthRedirect(@Req() req: any) {
     return this.authService.googleLogin(req);

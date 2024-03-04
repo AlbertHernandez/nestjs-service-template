@@ -88,7 +88,7 @@ export class AuthService {
 
     return {
       message: 'User information from google',
-      user: req.user
+      user: req.user,
     };
   }
 
