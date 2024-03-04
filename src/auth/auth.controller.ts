@@ -30,7 +30,7 @@ export class AuthController {
   }
 
   // Google Login.
-  @Get()
+  @Get('google')
   @UseGuards(AuthGuard('google'))
   async googleAuth(@Req() req: any): Promise<void> { }
 

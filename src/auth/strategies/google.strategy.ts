@@ -15,7 +15,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_SECRET,
             // Esta URL debe ser la misma que la URL de redirección que se estableció en la consola de desarrolladores de Google.
-            callbackURL: `http://localhost:3020/google/redirect`,
+            callbackURL: `http://localhost:3040/google/redirect`,
             scope: ['email', 'profile'],
         });
     }
