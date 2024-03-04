@@ -81,6 +81,17 @@ export class AuthService {
     };
   }
 
+  googleLogin(req: any) {
+    if (!req.user) {
+      return 'No user from google';
+    }
+
+    return {
+      message: 'User information from google',
+      user: req.user
+    };
+  }
+
   private getJwtToken(payload: JwtPayload) {
     // Aqui se firma el token con el payload.
     // Este codigo es sincrono, pero el metodo sign puede ser asincrono.
