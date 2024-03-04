@@ -14,6 +14,7 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
 
+  // Esto activa la validación de los DTOs.
   app.useGlobalPipes(new ValidationPipe());
 
   const configService = app.get(ConfigService);

@@ -48,16 +48,7 @@ export class AuthController {
   @Get('ability')
   @UseGuards(AuthGuard())
   testAuthorization(@Req() request: any) {
-    const { user } = request;
-
-    const ability = this.abilityFactory.defineAbiliy(user);
-
-    try {
-      ForbiddenError.from(ability).throwUnlessCan(Action.Manage, 'all');
-    } catch (error) {
-      console.log(error, 'aquierror');
-    }
-    return this.authService.testAuthorization();
+    return false;
   }
 
 

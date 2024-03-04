@@ -8,6 +8,11 @@ export class User {
     id: string;
 
     @Column('text', {
+        nullable: false
+    })
+    organizationId: string;
+
+    @Column('text', {
         unique: true
     })
     email: string;
