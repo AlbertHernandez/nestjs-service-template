@@ -49,6 +49,7 @@
     "@nestjs/platform-fastify": "^10.3.3",
     "@nestjs/swagger": "^7.3.0",
     "@nestjs/typeorm": "^10.0.2",
+    "@types/multer": "^1.4.11",
     "@types/nodemailer": "^6.4.14",
     "@types/passport-google-oauth20": "^2.0.14",
     "bcrypt": "^5.1.1",

@@ -14,6 +14,7 @@ import { TestProductModule } from './test-product/test-product.module';
 import { SeedModule } from './seed/seed.module';
 import { AuthModule } from './auth/auth.module';
 import { AbilityModule } from './ability/ability.module';
+import { FilesModule } from './files/files.module';
 
 @Module({
   imports: [
@@ -49,6 +50,7 @@ import { AbilityModule } from './ability/ability.module';
     SeedModule,
     AuthModule,
     AbilityModule,
+    FilesModule,
   ],
 })
 
