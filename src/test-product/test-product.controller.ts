@@ -14,14 +14,15 @@ export class TestProductController {
     return i18n.t(`test.here`);
   }
 
-  @Post()
-  create(@Body() createTestProductDto: CreateTestProductDto) {
-    return this.testProductService.create(createTestProductDto);
+  @Get('latency')
+  async outputWithLatencyTest(@Body() createTestProductDto: CreateTestProductDto) {
+
+    return this.testProductService.latency();
   }
 
   @Get()
   findAll() {
-    return this.testProductService.findAll();
+    return;
   }
 
   @Get(':id')
