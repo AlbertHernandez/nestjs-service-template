@@ -1,11 +1,15 @@
+import * as path from 'path';
+
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 
 import { HealthModule } from "@core/health/health.module";
 import { LoggerModule } from "@core/logger/logger.module";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { AcceptLanguageResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
+
 
 import { UserModule } from "@contexts/users/user.module";
-import { TypeOrmModule } from "@nestjs/typeorm";
 import { TestProductModule } from './test-product/test-product.module';
 import { SeedModule } from './seed/seed.module';
 import { AuthModule } from './auth/auth.module';
@@ -27,6 +31,17 @@ import { AbilityModule } from './ability/ability.module';
 
     }),
     ConfigModule.forRoot({ isGlobal: true, cache: true }),
+    I18nModule.forRoot({
+      fallbackLanguage: 'es',
+      loaderOptions: {
+        path: path.join(__dirname, '/i18n/'),
+        watch: true,
+      },
+      resolvers: [
+        { use: QueryResolver, options: ['lang'] },
+        AcceptLanguageResolver,
+      ],
+    }),
     LoggerModule,
     HealthModule,
     UserModule,
@@ -37,6 +52,4 @@ import { AbilityModule } from './ability/ability.module';
   ],
 })
 
-export class AppModule {
-
-}
+export class AppModule { }

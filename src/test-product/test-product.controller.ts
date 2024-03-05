@@ -1,11 +1,18 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { I18n, I18nContext } from 'nestjs-i18n';
+
 import { TestProductService } from './test-product.service';
 import { CreateTestProductDto } from './dto/create-test-product.dto';
 import { UpdateTestProductDto } from './dto/update-test-product.dto';
 
 @Controller('test-product')
 export class TestProductController {
-  constructor(private readonly testProductService: TestProductService) {}
+  constructor(private readonly testProductService: TestProductService) { }
+
+  @Get('translate')
+  testTranslate(@I18n() i18n: I18nContext) {
+    return i18n.t(`test.here`);
+  }
 
   @Post()
   create(@Body() createTestProductDto: CreateTestProductDto) {
