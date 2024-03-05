@@ -1,6 +1,7 @@
 import * as path from 'path';
 
 import { Module } from "@nestjs/common";
+import { CacheModule } from '@nestjs/cache-manager';
 import { ConfigModule } from "@nestjs/config";
 
 import { HealthModule } from "@core/health/health.module";
@@ -15,6 +16,7 @@ import { SeedModule } from './seed/seed.module';
 import { AuthModule } from './auth/auth.module';
 import { AbilityModule } from './ability/ability.module';
 import { FilesModule } from './files/files.module';
+import { redisStore } from 'cache-manager-redis-yet';
 
 @Module({
   imports: [
@@ -42,6 +44,18 @@ import { FilesModule } from './files/files.module';
         { use: QueryResolver, options: ['lang'] },
         AcceptLanguageResolver,
       ],
+    }),
+    CacheModule.register({
+      isGlobal: true,
+      useFactory: async () => {
+        const store = await redisStore({
+          socket: {
+            host: 'localhost',
+            port: 6379,
+          }
+        });
+        return store;
+      },
     }),
     LoggerModule,
     HealthModule,
