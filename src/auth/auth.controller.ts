@@ -21,6 +21,11 @@ export class AuthController {
     console.log(createUserDto);
     return this.authService.create(createUserDto);
   }
+  // Confirm Email.
+  @Get('confirm-email/:token')
+  async confirmEmail(@Param('token') token: string) {
+    return this.authService.confirmEmail(token);
+  }
 
   // Email Login.
   @Post('login')
