@@ -50,7 +50,7 @@ export class AuthController {
   @UseGuards(AuthGuard())
   testingPrivateRoute() {
     return {
-      message: 'This is a private route',
+      message: 'Esta es una ruta privada',
       status: 200
     };
   }
@@ -58,7 +58,7 @@ export class AuthController {
   @Get('public')
   testingPublicRoutes() {
     return {
-      message: 'This is a public route',
+      message: 'Esta es una ruta pública',
       status: 200
     };
   }

@@ -8,18 +8,14 @@ import { AppModule } from "./app.module";
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(
     AppModule,
-    // No need to specify an adapter for Express as it's the default
   );
 
-  // Validation pipes still work the same with Express
   app.useGlobalPipes(new ValidationPipe());
 
   const configService = app.get(ConfigService);
   const port = configService.get<string>("PORT", "3000");
 
   await app.listen(port, "0.0.0.0"); // Use app.listen for Express
-
-
 
   const logger = app.get(Logger);
   logger.log(`App is ready and listening on port ${port} `);

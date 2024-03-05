@@ -35,7 +35,7 @@ export class AuthService {
 
     const existingUser = await this.userRepository.findOneBy({ email: createUserDto.email });
     if (existingUser) {
-      throw new BadRequestException('Email address already registered');
+      throw new BadRequestException('Dirección de correo electrónico ya registrada');
     }
 
     try {
@@ -69,7 +69,7 @@ export class AuthService {
   async confirmEmail(token: string): Promise<void> {
     const user = await this.userRepository.findOne({ where: { verificationToken: token } });
     if (!user) {
-      throw new BadRequestException('Invalid confirmation token');
+      throw new BadRequestException('Token de confirmación inválido');
     }
 
     user.emailVerified = true;
@@ -103,11 +103,11 @@ export class AuthService {
 
   googleLogin(req: any) {
     if (!req.user) {
-      return 'No user from google';
+      return 'No hay usuario de Google';
     }
 
     return {
-      message: 'User information from google',
+      message: 'Información del usuario de Google',
       user: req.user,
     };
   }
@@ -122,7 +122,8 @@ export class AuthService {
 
   private generateConfirmationToken(email: string): string {
     const token = randomBytes(32).toString('hex'); // Generate a random token
-    // You might want to store this token alongside the user's email in the database for verification
+    // Nota!: Es posible que desees almacenar este token junto con el correo electrónico del usuario en la base de datos para su verificación
+
     return token;
   }
 
@@ -133,12 +134,12 @@ export class AuthService {
 
     console.log(error);
 
-    throw new InternalServerErrorException('Please check server logs');
+    throw new InternalServerErrorException('Por favor, revisa los registros del servidor');
 
   }
 
   testAuthorization() {
-    return "This is a private route and it uses casl authorization.";
+    return "Esta es una ruta privada y utiliza autorización de casl.";
   }
 
 

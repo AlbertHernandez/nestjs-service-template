@@ -5,6 +5,7 @@
   "compilerOptions": {
     "deleteOutDir": true,
     "builder": "swc",
-    "typeCheck": true
+    "typeCheck": true,
+    "assets": [{ "include": "i18n/**/*", "watchAssets": true }]
   }
 }
