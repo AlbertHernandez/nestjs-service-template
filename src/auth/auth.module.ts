@@ -10,11 +10,12 @@ import { User } from './entities/user.entity';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { AbilityModule } from '@src/ability/ability.module';
 import { GoogleStrategy } from './strategies/google.strategy';
+import { EmailService } from '@src/email/email.service';
 
 
 @Module({
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy, GoogleStrategy],
+  providers: [AuthService, JwtStrategy, GoogleStrategy, EmailService],
   imports: [
     AbilityModule,
     TypeOrmModule.forFeature([User]),

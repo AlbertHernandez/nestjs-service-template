@@ -8,14 +8,27 @@ export class User {
     id: string;
 
     @Column('text', {
-        nullable: false
+        nullable: true
     })
     organizationId: string;
+
+    @Column('boolean', {
+        default: false,
+        nullable: true
+    })
+    emailVerified?: boolean;
 
     @Column('text', {
         unique: true
     })
     email: string;
+
+    @Column('text', {
+        unique: true,
+        default: null,
+        nullable: true
+    })
+    verificationToken: string;
 
     @Column('text', {
         select: false
