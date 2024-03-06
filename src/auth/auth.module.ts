@@ -7,10 +7,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { User } from './entities/user.entity';
-import { JwtStrategy } from './strategies/jwt.strategy';
+import { JwtStrategy } from './strategies/jwt/jwt.strategy';
 import { AbilityModule } from '@src/ability/ability.module';
-import { GoogleStrategy } from './strategies/google.strategy';
+
 import { EmailService } from '@src/email/email.service';
+import { GoogleStrategy } from './strategies/google/google.strategy';
 
 
 @Module({
