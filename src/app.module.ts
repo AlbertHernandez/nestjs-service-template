@@ -18,11 +18,17 @@ import { SeedModule } from './seed/seed.module';
 import { AuthModule } from './auth/auth.module';
 import { AbilityModule } from './ability/ability.module';
 import { FilesModule } from './files/files.module';
+import { EnvConfiguration } from './config/env.config';
 
 
 @Module({
   providers: [],
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      cache: true,
+      load: [EnvConfiguration]
+    }),
     TypeOrmModule.forRoot({
       type: "postgres",
       host: process.env.DB_HOST,
@@ -34,9 +40,7 @@ import { FilesModule } from './files/files.module';
       // Nota: User esto solo en development.
       // En producción usar migraciones.
       synchronize: true,
-
     }),
-    ConfigModule.forRoot({ isGlobal: true, cache: true }),
     I18nModule.forRoot({
       fallbackLanguage: 'es',
       loaderOptions: {
@@ -62,12 +66,12 @@ import { FilesModule } from './files/files.module';
     }),
     LoggerModule,
     HealthModule,
-    UserModule,
     TestProductModule,
     SeedModule,
-    AuthModule,
     AbilityModule,
     FilesModule,
+    AuthModule,
+    UserModule,
   ],
 })
 
