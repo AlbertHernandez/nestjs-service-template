@@ -18,7 +18,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         configService: ConfigService
     ) {
         super({
-            secretOrKey: process.env.JWT_SECRET,
+            secretOrKey: configService.get('jwtSecret'),
             // Esto define en que posicion esta el web token.
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
         });
