@@ -1,7 +1,10 @@
 import { Logger, ValidationPipe } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { NestFactory } from "@nestjs/core";
 import { NestExpressApplication } from "@nestjs/platform-express";
+import { HttpAdapterHost, NestFactory } from '@nestjs/core';
+import * as Sentry from '@sentry/node';
+import { SentryFilter } from './logger/filters/sentry.filter';
+
 
 import { AppModule } from "./app.module";
 
@@ -10,6 +13,15 @@ async function bootstrap() {
     AppModule,
   );
 
+  // Sentry inicialización.
+  Sentry.init({
+    dsn: process.env.SENTRY_DNS,
+  });
+  // Aplicar Sentry Filter a nivel global.
+  const { httpAdapter } = app.get(HttpAdapterHost);
+  app.useGlobalFilters(new SentryFilter(httpAdapter));
+
+  // Necesario usando Fastify.
   app.useGlobalPipes(new ValidationPipe());
 
   const configService = app.get(ConfigService);

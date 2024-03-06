@@ -20,8 +20,9 @@ export class TestProductController {
     return this.testProductService.latency();
   }
 
-  @Get()
+  @Post('error-test')
   findAll() {
+    throw new Error('Error customizado');
     return;
   }
 
