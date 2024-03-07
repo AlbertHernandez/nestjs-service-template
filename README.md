@@ -72,4 +72,5 @@ Este repositorio es parte de los esfuerzos de Komvoy para agilizar los procesos 
 
 ---
 
-⭐ **Basado en la Plantilla Original:** Plantilla de Servicio NestJS por nestjs-template
+⭐ **Basado en la Plantilla Original:** Plantilla de NestJS Service Template por Albert Hernandez.
+Available here: https://github.com/AlbertHernandez/nestjs-service-template
