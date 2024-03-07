@@ -13,7 +13,17 @@ A continuación se presenta un menú de enlaces a la documentación de los difer
 - [Registro de Errores con Sentry](./documentation/sentry-logger.md)
 - [Caching con Redis](./documentation/redis.md)
 
-### **Funcionalidades Incluidas:**
+### Funcionalidades Incluidas:
+
+- Dockerización completa para entornos de desarrollo y producción.
+- Utiliza SWC para una compilación y ejecución de pruebas más rápida.
+- Integración con Fastify para un mejor rendimiento web.
+- Uso de Husky para mantener la calidad del código y las convenciones.
+- Separación de pruebas de código de producción.
+- Pruebas unitarias y de extremo a extremo con Vitest y Supertest.
+- Cobertura combinada de pruebas unitarias y de extremo a extremo.
+- Alias de ruta personalizados para una importación más limpia.
+- CI/CD con GitHub Actions para garantizar la calidad del código y detectar vulnerabilidades.
 
 ### Configuración Global
 
