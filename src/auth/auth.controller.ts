@@ -1,14 +1,10 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, ForbiddenException } from '@nestjs/common';
-import { ForbiddenError } from '@casl/ability';
+import { Controller, Get, Post, Body, Param, UseGuards, Req } from '@nestjs/common';
+
 import { AuthService } from './auth.service';
-import { } from './dto/create-user.dto';
 import { LoginUserDto, CreateUserDto } from './dto';
 import { AuthGuard } from '@nestjs/passport';
 import { AbilityFactory } from '@src/ability/ability.factory';
-
-import { Action } from '@src/ability/ability.factory';
-
-
+``;
 @Controller('auth')
 export class AuthController {
   constructor(
