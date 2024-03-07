@@ -11,6 +11,7 @@ A continuación se presenta un menú de enlaces a la documentación de los difer
 - [Autenticación](./documentation/authentication.md)
 - [Autorización](./documentation/authorization.md)
 - [Registro de Errores con Sentry](./documentation/sentry-logger.md)
+- [Caching con Redis](./documentation/redis.md)
 
 ### **Funcionalidades Incluidas:**
 
@@ -46,6 +47,10 @@ A continuación se presenta un menú de enlaces a la documentación de los difer
 ### Registro de Errores con Sentry
 
 - **Registro de Errores con Sentry:** Integra y configura Sentry para el registro de errores dentro de la aplicación. Captura y envía automáticamente excepciones y errores a la plataforma Sentry para su análisis y seguimiento.
+
+### Cache Manager con Redis
+
+El módulo de Cache Manager con Redis en Nest.js permite almacenar datos en caché de forma eficiente utilizando una base de datos Redis. Esta funcionalidad mejora el rendimiento y la escalabilidad de la aplicación al reducir la carga en la base de datos principal mediante el almacenamiento temporal de datos en memoria.
 
 ### **Uso**
 
