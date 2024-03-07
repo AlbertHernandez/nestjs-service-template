@@ -1,143 +1,64 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="images/nestjs.png" alt="Nest Logo" width="512" /></a>
-</p>
+# readmefull
 
-<h1 align="center">⭐ NestJS Service Template ⭐</h1>
+Status: Not started
 
-<p align="center">
-  Template for new services based on NestJS with the Best Practices and Ready for Production
-</p>
+## **Plantilla de Servicio NestJS de Komvoy ⭐**
 
-<p align="center">
-  <a href="https://github.com/AlbertHernandez/nestjs-service-template/actions/workflows/node.yml?branch=main"><img src="https://github.com/AlbertHernandez/nestjs-service-template/actions/workflows/node.yml/badge.svg?branch=main" alt="nodejs"/></a>
-  <a href="https://nodejs.org/docs/latest-v20.x/api/index.html"><img src="https://img.shields.io/badge/node-20.x-green.svg" alt="node"/></a>
-  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/typescript-5.x-blue.svg" alt="typescript"/></a>
-  <a href="https://docs.nestjs.com/v10/"><img src="https://img.shields.io/badge/npm-10.x-red.svg" alt="npm"/></a>
-  <a href="https://fastify.dev/"><img src="https://img.shields.io/badge/Web_Framework-Fastify_⚡-black.svg" alt="fastify"/></a>
-  <a href="https://swc.rs/"><img src="https://img.shields.io/badge/Compiler-SWC_-orange.svg" alt="swc"/></a>
-  <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Dockerized 🐳_-blue.svg" alt="docker"/></a>
-</p>
+Este repositorio proporciona una plantilla robusta para el desarrollo de servicios basados en NestJS, incorporando las mejores prácticas y características esenciales requeridas para aplicaciones listas para producción.
 
-## 👀 Motivation
+### **Funcionalidades Incluidas:**
 
-When we start creating some new service based on NestJS most often we just use the Nest cli for starting a new service that already give us some convention and structure for our project. This is a good starting point however I was missing a couple of interesting things that almost all services should have to be ready to deploy to production like fully dockerized, ensuring coding conventions...
+### Configuración Global
 
-For this reason I created this custom template for new services based on this framework, with everything I would like to have to start developing a service with the best practices but with a simple file structure so later developers can change to implement their logic.
+- **Gestión de Variables de Entorno:** Administra eficientemente las variables de entorno para la configuración global de la aplicación.
+- **Configuración de TypeORM:** Configura TypeORM para interacciones fluidas con la base de datos.
 
-Here we are not providing any specific architecture like hexagonal architecture or others, this is like a simple template where later we can customize and create the architecture we need.
+### Correo Electrónico
 
-## 🌟 What is including this template?
+- **Integración con Nodemailer:** Integra y configura Nodemailer para enviar correos electrónicos dentro de la aplicación. Admite servicios de correo electrónico configurables mediante variables de entorno.
 
-1. 🐳 Fully dockerized service ready for development and production environments with the best practices for docker, trying to provide a performance and small image just with the code we really need in your environments.
-2. 👷 Use [SWC](https://swc.rs/) for compiling and running the tests of the service. As commented in the own [NestJS docs](https://docs.nestjs.com/recipes/swc), this is approximately x20 times faster than default typescript compiler that is the one that comes by default in NestJS.
-3. ⚡️ Use [Fastify](https://fastify.dev/) as Web Framework. By default, [NestJS is using Express](https://docs.nestjs.com/techniques/performance) because is the most widely-used framework for working with NodeJS, however, this does not imply is the one is going to give us the most performance. Also, NestJS is fully compatible with Fastify, so we are providing this integration by default. You can check [here](https://github.com/fastify/benchmarks#benchmarks) comparison between different web frameworks.
-4. 🐶 Integration with [husky](https://typicode.github.io/husky/) to ensure we have good quality and conventions while we are developing like:
-   - 💅 Running the linter over the files that have been changed
-   - 💬 Use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to ensure our commits have a convention.
-   - ✅ Run the tests automatically.
-   - ⚙️ Check our project does not have type errors with Typescript.
-5. 🧪 Separate tests over production code. By default, NestJS is combining in the same folder, the `src`, the unit tests and the code we are developing for production. This is something I personally don't like so here I am separating this and having a dedicated folder for the unit tests.
-6. 🤜🤛 Combine unit and e2e test coverage. In the services we may have both type of tests, unit and e2e tests, and usually we would like to see what is the combined test coverage, so we can see the full picture.
-7. 📌 Custom path aliases, where you can define your own paths (you will be able to use imports like `@core/logger` instead of `../../../src/core/logger`).
-8. 🚀 CI/CD using GitHub Actions, helping ensure a good quality of our code and providing useful insights about dependencies, security vulnerabilities and others.
+### Carga de Archivos
 
-## 🤩 Other templates
+- **Subida de Archivos:** Simplifica la subida de archivos con capacidades de filtrado y procesamiento previo al almacenamiento.
 
-Are you thinking in start new projects in other frameworks or create a super fancy library? If you like this template there are others base on this you can check:
+### Internacionalización (I18n)
 
-- [Template for new Typescript Libraries](https://github.com/AlbertHernandez/typescript-library-template)
-- [Template for new Typescript Express Services](https://github.com/AlbertHernandez/express-typescript-service-template)
-- [Template for new GitHub Actions based on NodeJS](https://github.com/AlbertHernandez/github-action-nodejs-template)
+- **Localización y Traducción:** Habilita la localización y traducción de textos de la aplicación para admitir varios idiomas utilizando nestjs-i18n.
 
-## 🧑‍💻 Developing
+### Prueba de Producto
 
-First, we will need to create our .env file, we can create a copy from the example one:
+- **Endpoints de Pruebas de Producto:** Proporciona endpoints para probar implementaciones y funcionalidades durante el desarrollo de la aplicación.
 
-```bash
-cp .env.example .env
-```
+### Autenticación
 
-The project is fully dockerized 🐳, if we want to start the app in **development mode**, we just need to run:
+- **Autenticación de Usuarios:** Autentica usuarios utilizando Tokens de Seguridad JSON (JWT) para la seguridad. Incluye confirmación de correo electrónico y estrategia de autenticación Google OAuth2.0.
 
-```bash
-docker-compose up -d my-service-dev
-```
+### Autorización
 
-This development mode with work with **hot-reload** and exposing a **debug port**, the `9229`, so later we can connect from our editor to it.
+- **Autorización de Usuarios:** Define y verifica las capacidades de los usuarios, permitiendo la gestión de roles y acceso a recursos según las reglas establecidas.
 
-Now, you should be able to start debugging configuring using your IDE. For example, if you are using vscode, you can create a `.vscode/launch.json` file with the following configuration:
+### Registro de Errores con Sentry
 
-```json
-{
-  "version": "0.1.0",
-  "configurations": [
-    {
-      "type": "node",
-      "request": "attach",
-      "name": "Attach to docker",
-      "restart": true,
-      "port": 9229,
-      "remoteRoot": "/app"
-    }
-  ]
-}
-```
+- **Registro de Errores con Sentry:** Integra y configura Sentry para el registro de errores dentro de la aplicación. Captura y envía automáticamente excepciones y errores a la plataforma Sentry para su análisis y seguimiento.
 
-Also, if you want to run the **production mode**, you can run:
+### **Uso**
 
-```bash
-docker-compose up -d my-service-production
-```
+Siga las instrucciones a continuación para utilizar las funcionalidades y estructura proporcionadas por esta plantilla:
 
-This service is providing just a health endpoint which you can call to verify the service is working as expected:
+1. Clone este repositorio.
+2. Cree un archivo **`.env`** basado en el **`.env.example`** proporcionado.
+3. Utilice Docker para entornos de desarrollo y producción:
+   - Modo de Desarrollo: **`docker-compose up -d my-service-dev`**
+   - Modo de Producción: **`docker-compose up -d my-service-production`**
+4. Depure la aplicación configurando su IDE en consecuencia, con soporte para recarga en caliente.
+5. Acceda al punto de control de salud (**`http://localhost:3000/health`**) para verificar la funcionalidad del servicio.
+6. Ejecute pruebas utilizando **`npm run test`**, **`npm run test:unit`**, o **`npm run test:e2e`**.
+7. Administre el linting con **`npm run lint`** y **`npm run lint:fix`**.
 
-```bash
-curl --request GET \
-  --url http://localhost:3000/health
-```
+Para instrucciones detalladas de uso, consulte el README original de la Plantilla de Servicio NestJS.
 
-If you want to stop developing, you can stop the service running:
+Este repositorio es parte de los esfuerzos de Komvoy para agilizar los procesos de desarrollo de servicios y adherirse a las mejores prácticas de la industria.
 
-```bash
-docker-compose down
-```
+---
 
-## ⚙️ Building
-
-```bash
-npm run build
-```
-
-## ✅ Testing
-
-The service provide different scripts for running the tests, to run all of them you can run:
-
-```bash
-npm run test
-```
-
-If you are interested just in the unit tests, you can run:
-
-```bash
-npm run test:unit
-```
-
-Or if you want e2e tests, you can execute:
-
-```bash
-npm run test:e2e
-```
-
-## 💅 Linting
-
-To run the linter you can execute:
-
-```bash
-npm run lint
-```
-
-And for trying to fix lint issues automatically, you can run:
-
-```bash
-npm run lint:fix
-```
+⭐ **Basado en la Plantilla Original:** Plantilla de Servicio NestJS por nestjs-template

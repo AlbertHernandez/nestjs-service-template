@@ -1,5 +1,4 @@
 import * as path from 'path';
-import * as Sentry from '@sentry/node';
 
 import { Module } from '@nestjs/common';
 import { CacheModule } from '@nestjs/cache-manager';
@@ -12,7 +11,6 @@ import { AcceptLanguageResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
 import { redisStore } from 'cache-manager-redis-yet';
 
 
-import { UserModule } from "@contexts/users/user.module";
 import { TestProductModule } from './test-product/test-product.module';
 import { SeedModule } from './seed/seed.module';
 import { AuthModule } from './auth/auth.module';
@@ -71,7 +69,6 @@ import { EnvConfiguration } from './config/env.config';
     AbilityModule,
     FilesModule,
     AuthModule,
-    UserModule,
   ],
 })
 
