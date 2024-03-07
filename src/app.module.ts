@@ -1,23 +1,17 @@
-import * as path from 'path';
-
 import { Module } from '@nestjs/common';
 import { CacheModule } from '@nestjs/cache-manager';
-import { ConfigModule } from "@nestjs/config";
-
-import { HealthModule } from "@core/health/health.module";
-import { LoggerModule } from "@core/logger/logger.module";
-import { TypeOrmModule } from "@nestjs/typeorm";
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AcceptLanguageResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
+import { HealthModule } from '@core/health/health.module';
+import { LoggerModule } from '@core/logger/logger.module';
+import * as path from 'path';
 import { redisStore } from 'cache-manager-redis-yet';
 
-
-import { TestProductModule } from './test-product/test-product.module';
-import { SeedModule } from './seed/seed.module';
 import { AuthModule } from './auth/auth.module';
 import { AbilityModule } from './ability/ability.module';
 import { FilesModule } from './files/files.module';
 import { EnvConfiguration } from './config/env.config';
-
 
 @Module({
   providers: [],
@@ -64,14 +58,10 @@ import { EnvConfiguration } from './config/env.config';
     }),
     LoggerModule,
     HealthModule,
-    TestProductModule,
-    SeedModule,
     AbilityModule,
     FilesModule,
     AuthModule,
   ],
 })
 
-export class AppModule {
-
-}
+export class AppModule { }
