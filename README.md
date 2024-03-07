@@ -2,6 +2,16 @@
 
 Este repositorio proporciona una plantilla robusta para el desarrollo de servicios basados en NestJS, incorporando las mejores prácticas y características esenciales requeridas para aplicaciones listas para producción.
 
+A continuación se presenta un menú de enlaces a la documentación de los diferentes módulos incluidos en esta plantilla:
+
+- [Configuración Global](./documentation/config-module.md)
+- [Correo Electrónico](./documentation/email-service.md)
+- [Carga de Archivos](./documentation/files-upload.md)
+- [Internacionalización (I18n)](./documentation/localization-multi-language.md)
+- [Autenticación](./documentation/authentication.md)
+- [Autorización](./documentation/authorization.md)
+- [Registro de Errores con Sentry](./documentation/sentry-logger.md)
+
 ### **Funcionalidades Incluidas:**
 
 ### Configuración Global
@@ -38,16 +48,6 @@ Este repositorio proporciona una plantilla robusta para el desarrollo de servici
 - **Registro de Errores con Sentry:** Integra y configura Sentry para el registro de errores dentro de la aplicación. Captura y envía automáticamente excepciones y errores a la plataforma Sentry para su análisis y seguimiento.
 
 ### **Uso**
-
-A continuación se presenta un menú de enlaces a la documentación de los diferentes módulos incluidos en esta plantilla:
-
-- [Configuración Global](./documentation/config-module.md)
-- [Correo Electrónico](./documentation/email-service.md)
-- [Carga de Archivos](./documentation/files-upload.md)
-- [Internacionalización (I18n)](./documentation/localization-multi-language.md)
-- [Autenticación](./documentation/authentication.md)
-- [Autorización](./documentation/authorization.md)
-- [Registro de Errores con Sentry](./documentation/sentry-logger.md)
 
 Siga las instrucciones a continuación para utilizar las funcionalidades y estructura proporcionadas por esta plantilla:
 
