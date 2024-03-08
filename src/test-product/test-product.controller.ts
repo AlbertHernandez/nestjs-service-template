@@ -11,8 +11,8 @@ export class TestProductController {
   ) { }
 
   @Post('translate')
-  create(@Body() createTestProductDto: CreateTestProductDto) {
-    return this.testProductService.create(createTestProductDto);
+  translateTest() {
+    return this.testProductService.translateTest();
   }
 
   @Get()

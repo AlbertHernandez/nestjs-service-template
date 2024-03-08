@@ -6,7 +6,7 @@ import path from 'path';
 @Module({
   imports: [
     I18nModule.forRoot({
-      fallbackLanguage: 'es',
+      fallbackLanguage: process.env.FALLBACK_LANGUAGE || 'es',
       loaderOptions: {
         path: path.join(__dirname, '../../locale'),
         watch: true,

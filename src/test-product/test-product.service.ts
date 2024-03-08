@@ -11,10 +11,15 @@ export class TestProductService {
   ) { }
 
 
-  async create(createTestProductDto: CreateTestProductDto) {
-    const translatedMessage = await this.translateService.translate('test.click', { args: {} }, 'es');
+  async translateTest() {
+    // const multiLanguage = await this.translateService.lan('test.click');
 
-    return translatedMessage;
+    // return multiLanguage;
+
+    const { lan } = this.translateService;
+
+    return await lan('test.click');
+
   }
 
   findAll() {
