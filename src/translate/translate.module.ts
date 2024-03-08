@@ -8,7 +8,7 @@ import path from 'path';
     I18nModule.forRoot({
       fallbackLanguage: 'es',
       loaderOptions: {
-        path: path.join(__dirname, '../i18n'),
+        path: path.join(__dirname, '../../locale'),
         watch: true,
       },
       resolvers: [
