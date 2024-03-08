@@ -12,6 +12,9 @@ import { AuthModule } from './auth/auth.module';
 import { AbilityModule } from './ability/ability.module';
 import { FilesModule } from './files/files.module';
 import { EnvConfiguration } from './config/env.config';
+import { TranslateModule } from './translate/translate.module';
+import { TestProductModule } from './test-product/test-product.module';
+
 
 @Module({
   providers: [],
@@ -33,17 +36,6 @@ import { EnvConfiguration } from './config/env.config';
       // En producción usar migraciones.
       synchronize: true,
     }),
-    I18nModule.forRoot({
-      fallbackLanguage: 'es',
-      loaderOptions: {
-        path: path.join(__dirname, '/i18n/'),
-        watch: true,
-      },
-      resolvers: [
-        { use: QueryResolver, options: ['lang'] },
-        AcceptLanguageResolver,
-      ],
-    }),
     CacheModule.register({
       isGlobal: true,
       useFactory: async () => {
@@ -61,6 +53,8 @@ import { EnvConfiguration } from './config/env.config';
     AbilityModule,
     FilesModule,
     AuthModule,
+    TranslateModule,
+    TestProductModule,
   ],
 })
 
