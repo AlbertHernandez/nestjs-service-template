@@ -18,19 +18,22 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
 
-  // Sentry inicialización.
-  Sentry.init({
-    dsn: process.env.SENTRY_DNS,
-  });
-  // Aplicar Sentry Filter a nivel global.
-  const { httpAdapter } = app.get(HttpAdapterHost);
-  app.useGlobalFilters(new SentryFilter(httpAdapter));
+  const configService = app.get(ConfigService);
+  const isProduction = configService.get<string>("NODE_ENV") === 'production';
 
+  if (isProduction) {
+    // Inicialización de Sentry en producción
+    Sentry.init({
+      dsn: process.env.SENTRY_DNS,
+    });
+    // Aplicar el filtro de Sentry globalmente
+    const { httpAdapter } = app.get(HttpAdapterHost);
+    app.useGlobalFilters(new SentryFilter(httpAdapter));
+  }
 
   // Necesario usando Fastify.
   app.useGlobalPipes(new ValidationPipe());
 
-  const configService = app.get(ConfigService);
   const port = configService.get<string>("PORT", "3000");
 
   await app.listen(port, "0.0.0.0");
