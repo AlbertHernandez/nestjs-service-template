@@ -1,7 +1,3 @@
-# Documentación del Módulo de Autenticación
-
-Status: Done
-
 ## **Introducción**
 
 Esta documentación presenta el módulo de autenticación integrado en tu aplicación Nest.js 10. El módulo permite la autenticación de usuarios mediante Tokens de Seguridad JSON (JWT) y proporciona soporte para la confirmación de correos electrónicos de nuevos usuarios antes de guardarlos en la base de datos. También incluye una estrategia de autenticación Google OAuth2.0 para facilitar el inicio de sesión.
@@ -19,27 +15,26 @@ Esta documentación presenta el módulo de autenticación integrado en tu aplica
 ```tsx
 // auth.module.ts
 
-import { Module } from '@nestjs/common';
-import { PassportModule } from '@nestjs/passport';
-import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from './jwt.strategy';
-import { AuthService } from './auth.service';
-import { AuthController } from './auth.controller';
-import { GoogleStrategy } from './google.strategy';
+import { Module } from "@nestjs/common";
+import { PassportModule } from "@nestjs/passport";
+import { JwtModule } from "@nestjs/jwt";
+import { JwtStrategy } from "./jwt.strategy";
+import { AuthService } from "./auth.service";
+import { AuthController } from "./auth.controller";
+import { GoogleStrategy } from "./google.strategy";
 
 @Module({
   imports: [
     PassportModule,
     JwtModule.register({
-      secret: 'tu_clave_secreta', // Reemplaza con tu clave secreta
-      signOptions: { expiresIn: '1d' }, // Establece el tiempo de expiración para el JWT
+      secret: "tu_clave_secreta", // Reemplaza con tu clave secreta
+      signOptions: { expiresIn: "1d" }, // Establece el tiempo de expiración para el JWT
     }),
   ],
   providers: [AuthService, JwtStrategy, GoogleStrategy],
   controllers: [AuthController],
 })
 export class AuthModule {}
-
 ```
 
 ```tsx
@@ -58,17 +53,17 @@ export class AuthService {
 ```tsx
 // jwt.strategy.ts
 
-import { Injectable } from '@nestjs/common';
-import { PassportStrategy } from '@nestjs/passport';
-import { Strategy, ExtractJwt } from 'passport-jwt';
-import { AuthService } from './auth.service';
+import { Injectable } from "@nestjs/common";
+import { PassportStrategy } from "@nestjs/passport";
+import { Strategy, ExtractJwt } from "passport-jwt";
+import { AuthService } from "./auth.service";
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private authService: AuthService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: 'tu_clave_secreta', // Reemplaza con tu clave secreta
+      secretOrKey: "tu_clave_secreta", // Reemplaza con tu clave secreta
     });
   }
 
@@ -77,7 +72,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     // Retorna el usuario si el token es válido
   }
 }
-
 ```
 
 ```tsx
@@ -119,16 +113,15 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 ```tsx
 // auth.controller.ts
 
-import { Controller } from '@nestjs/common';
-import { AuthService } from './auth.service';
+import { Controller } from "@nestjs/common";
+import { AuthService } from "./auth.service";
 
-@Controller('auth')
+@Controller("auth")
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   // Implementa tus rutas de autenticación y registro aquí
 }
-
 ```
 
 ### **Notas**

@@ -1,34 +1,25 @@
-# Documentación del Módulo de Internacionalización (I18n)
+# **Módulo de Traducción**
 
-Status: Not started
+El módulo de traducción encapsula la funcionalidad de internacionalización (i18n) en una aplicación NestJS. Utiliza la biblioteca **`nestjs-i18n`** para manejar las traducciones en diferentes idiomas.
 
-## **Introducción**
+## **Configuración**
 
-El Módulo de Internacionalización (I18n) en tu aplicación Nest.js te permite manejar la localización y traducción de textos para admitir múltiples idiomas. Este módulo utiliza la biblioteca **`nestjs-i18n`** para proporcionar una forma fácil de internacionalizar tu aplicación.
-
-### **Propósito**
-
-El propósito del Módulo de Internacionalización (I18n) es permitir que tu aplicación admita múltiples idiomas y ofrezca una experiencia localizada a los usuarios.
-
-### **Configuración del Módulo I18n**
-
-Para configurar el módulo de internacionalización en tu aplicación, sigue estos pasos:
-
-1. **Importar el Módulo**: Asegúrate de importar el módulo **`I18nModule`** en el módulo principal de tu aplicación.
+El módulo de traducción se configura utilizando el método **`forRoot`** de **`I18nModule`**. Se proporciona la configuración necesaria, como el idioma predeterminado y la ubicación de los archivos de traducción.
 
 ```tsx
 typescriptCopy code
 import { Module } from '@nestjs/common';
-import { I18nModule } from 'nestjs-i18n';
-import * as path from 'path';
+import { TranslateService } from './translate.service';
+import { AcceptLanguageResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
+import path from 'path';
 
 @Module({
   imports: [
     I18nModule.forRoot({
-      fallbackLanguage: 'es',
+      fallbackLanguage: 'es', // Idioma predeterminado
       loaderOptions: {
-        path: path.join(__dirname, '/i18n/'),
-        watch: true,
+        path: path.join(__dirname, '../i18n'), // Ruta de los archivos de traducción
+        watch: true, // Observar cambios en los archivos de traducción
       },
       resolvers: [
         { use: QueryResolver, options: ['lang'] },
@@ -36,37 +27,61 @@ import * as path from 'path';
       ],
     }),
   ],
+  providers: [TranslateService],
+  exports: [TranslateService],
 })
-export class AppModule {}
+export class TranslateModule { }
 
 ```
 
-1. **Configurar el Módulo**: En la configuración del módulo, especifica el idioma predeterminado y la ubicación de los archivos de traducción.
-2. **Definir Resolvers**: Opcionalmente, puedes definir resolvers para manejar la detección automática del idioma del usuario.
+## **Uso del Servicio de Traducción**
 
-### **Uso del Módulo I18n en los Controladores**
-
-Una vez configurado el módulo de internacionalización, puedes utilizarlo en tus controladores para traducir los textos. Aquí hay un ejemplo de cómo hacerlo:
+El servicio de traducción (**`TranslateService`**) proporciona un método **`translate`** para obtener traducciones en diferentes idiomas.
 
 ```tsx
 typescriptCopy code
-import { Controller, Get } from '@nestjs/common';
-import { I18nContext, I18n } from 'nestjs-i18n';
+import { Injectable } from '@nestjs/common';
+import { I18nService } from 'nestjs-i18n';
 
-@Controller('test-product')
-export class TestProductController {
-  constructor(private readonly testProductService: TestProductService) {}
+@Injectable()
+export class TranslateService {
+    constructor(private readonly i18nService: I18nService) { }
 
-  @Get('translate')
-  testTranslate(@I18n() i18n: I18nContext) {
-    return i18n.t(`test.here`);
-  }
+    /**
+     * Traduce una clave de traducción al idioma especificado.
+     * @param key Clave de traducción
+     * @param args Argumentos opcionales para la traducción
+     * @param lang Idioma al que se traducirá el texto (opcional)
+     * @returns La traducción correspondiente a la clave proporcionada
+     */
+    async translate(key: string, args: any = {}, lang?: string): Promise<string> {
+        return this.i18nService.translate(key, {
+            lang,
+            args,
+        });
+    }
 }
 
 ```
 
-En este ejemplo, el método **`testTranslate`** del controlador traduce el texto **`test.here`** utilizando el servicio de internacionalización.
+## **Ejemplo de Uso**
 
-### **Conclusión**
+Para utilizar el servicio de traducción en otro módulo, simplemente inyecte el servicio y llame al método **`translate`** con la clave de traducción deseada.
 
-El Módulo de Internacionalización (I18n) en tu aplicación Nest.js te permite proporcionar una experiencia localizada a los usuarios, admitiendo múltiples idiomas y facilitando la traducción de textos. Utiliza este módulo para mejorar la accesibilidad y la usabilidad de tu aplicación en diferentes contextos culturales y lingüísticos.
+```tsx
+import { Injectable } from "@nestjs/common";
+import { TranslateService } from "./translate/translate.service";
+
+@Injectable()
+export class SomeService {
+  constructor(private readonly translateService: TranslateService) {}
+
+  async someMethod() {
+    const translatedMessage =
+      await this.translateService.translate("hello_world");
+    console.log(translatedMessage); // Salida: "¡Hola Mundo!"
+  }
+}
+```
+
+Con esto, puedes integrar fácilmente la funcionalidad de traducción en tu aplicación NestJS utilizando el módulo de traducción proporcionado.

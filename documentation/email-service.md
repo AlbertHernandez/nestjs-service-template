@@ -1,7 +1,3 @@
-# Documentación del Módulo de Correo Electrónico
-
-Status: Not started
-
 ## **Introducción**
 
 El Módulo de Correo Electrónico en tu aplicación Nest.js facilita el envío de correos electrónicos utilizando la biblioteca Nodemailer. Esta documentación proporciona una guía sobre cómo usar el módulo y cómo configurarlo para diferentes servicios de correo electrónico.

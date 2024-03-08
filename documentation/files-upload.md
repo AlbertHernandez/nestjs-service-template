@@ -1,7 +1,3 @@
-# Documentación del Módulo de Carga de Archiv
-
-Status: Not started
-
 ## **Introducción**
 
 El Módulo de Carga de Archivos en tu aplicación Nest.js te permite subir archivos de forma sencilla. Este módulo utiliza el paquete **`multer`** para gestionar la carga de archivos y proporciona funcionalidades para filtrar y procesar los archivos antes de almacenarlos.
@@ -71,20 +67,22 @@ export class FilesController {
 1. **Definir Funciones de Filtrado y Procesamiento**: En el controlador, asegúrate de definir las funciones de filtrado y procesamiento de archivos según tus necesidades específicas.
 
 ```tsx
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class FilesService {
   // Agregar lógica para procesar archivos antes de almacenarlos.
 }
-
 ```
 
 ```tsx
-export const fileFilter = (req: Express.Request, file: Express.Multer.File, callback: Function) => {
+export const fileFilter = (
+  req: Express.Request,
+  file: Express.Multer.File,
+  callback: Function,
+) => {
   // Implementar la lógica para filtrar archivos por tipo y tamaño.
 };
-
 ```
 
 ## **Conclusión**

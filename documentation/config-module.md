@@ -1,7 +1,3 @@
-# Documentación del Módulo de Configuración
-
-Status: Not started
-
 ## **Introducción**
 
 El Módulo de Configuración en tu aplicación Nest.js v10 sirve como un punto central para administrar variables de entorno y configurar varios aspectos de tu aplicación. Esta documentación proporciona una guía completa sobre cómo utilizar y extender el Módulo de Configuración dentro de tu proyecto.

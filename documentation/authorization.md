@@ -1,7 +1,3 @@
-# 02-Documentación del Módulo de Autorización
-
-Status: Not started
-
 ## **Introducción**
 
 Esta documentación presenta el módulo de autorización integrado en tu aplicación Nest.js 10. El módulo utiliza la biblioteca Casl para definir y verificar las capacidades de los usuarios, como administrar, crear, leer, actualizar y eliminar recursos. El módulo permite la personalización de roles, con roles predeterminados de administrador y usuario.
@@ -20,91 +16,98 @@ Esta documentación presenta el módulo de autorización integrado en tu aplicac
 ```tsx
 // abilities.decorator.ts
 
-import { SetMetadata } from '@nestjs/common';
-import { RequiredRules } from './abilities.guard';
+import { SetMetadata } from "@nestjs/common";
+import { RequiredRules } from "./abilities.guard";
 
-export const CHECK_ABILITY = 'check_ability';
+export const CHECK_ABILITY = "check_ability";
 
 export const CheckAbilities = (...requirements: RequiredRules[]) =>
-    SetMetadata(CHECK_ABILITY, requirements);
+  SetMetadata(CHECK_ABILITY, requirements);
 
 export class ReadUserAbility implements RequiredRules {
-    action: Action;
-    subject: Subjects;
+  action: Action;
+  subject: Subjects;
 }
-
 ```
 
 ```tsx
 // ability.factory.ts
 
-import { Ability, AbilityBuilder, AbilityClass, InferSubjects } from '@casl/ability';
-import { Injectable } from '@nestjs/common';
-import { User } from '../auth/entities/user.entity';
+import {
+  Ability,
+  AbilityBuilder,
+  AbilityClass,
+  InferSubjects,
+} from "@casl/ability";
+import { Injectable } from "@nestjs/common";
+import { User } from "../auth/entities/user.entity";
 
 export enum Action {
-    Manage = 'manage',
-    Create = 'create',
-    Read = 'read',
-    Update = 'update',
-    Delete = 'delete',
+  Manage = "manage",
+  Create = "create",
+  Read = "read",
+  Update = "update",
+  Delete = "delete",
 }
 
-export type Subjects = InferSubjects<typeof User> | 'all';
+export type Subjects = InferSubjects<typeof User> | "all";
 export type AppAbility = Ability<[Action, Subjects]>;
 
 @Injectable()
 export class AbilityFactory {
-    defineAbility(user: User) {
-        const { can, cannot, build } = new AbilityBuilder(
-            Ability as AbilityClass<AppAbility>,
-        );
-        // Lógica para definir capacidades basadas en el usuario y el rol
-        return build();
-    }
+  defineAbility(user: User) {
+    const { can, cannot, build } = new AbilityBuilder(
+      Ability as AbilityClass<AppAbility>,
+    );
+    // Lógica para definir capacidades basadas en el usuario y el rol
+    return build();
+  }
 }
-
 ```
 
 ```tsx
 // abilities.guard.ts
 
-import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common';
-import { Reflector } from '@nestjs/core';
-import { AbilityFactory } from './ability.factory';
-import { CHECK_ABILITY, RequiredRules } from './abilities.decorator';
-import { ForbiddenError } from '@casl/ability';
+import {
+  Injectable,
+  CanActivate,
+  ExecutionContext,
+  ForbiddenException,
+} from "@nestjs/common";
+import { Reflector } from "@nestjs/core";
+import { AbilityFactory } from "./ability.factory";
+import { CHECK_ABILITY, RequiredRules } from "./abilities.decorator";
+import { ForbiddenError } from "@casl/ability";
 
 @Injectable()
 export class AbilitiesGuard implements CanActivate {
-    constructor(
-        private reflector: Reflector,
-        private abilityFactory: AbilityFactory,
-    ) { }
+  constructor(
+    private reflector: Reflector,
+    private abilityFactory: AbilityFactory,
+  ) {}
 
-    async canActivate(context: ExecutionContext): Promise<boolean> {
-        const rules =
-            this.reflector.get<RequiredRules[]>(
-                CHECK_ABILITY,
-                context.getHandler(),
-            ) || [];
+  async canActivate(context: ExecutionContext): Promise<boolean> {
+    const rules =
+      this.reflector.get<RequiredRules[]>(
+        CHECK_ABILITY,
+        context.getHandler(),
+      ) || [];
 
-        const { user } = context.switchToHttp().getRequest();
-        const ability = this.abilityFactory.defineAbility(user);
+    const { user } = context.switchToHttp().getRequest();
+    const ability = this.abilityFactory.defineAbility(user);
 
-        try {
-            rules.forEach((rule) => {
-                ForbiddenError.from(ability).throwUnlessCan(rule.action, rule.subject);
-            });
-            return true;
-        } catch (error) {
-            if (error instanceof ForbiddenError) {
-                throw new ForbiddenException(error.message);
-            }
-        }
+    try {
+      rules.forEach(rule => {
+        ForbiddenError.from(ability).throwUnlessCan(rule.action, rule.subject);
+      });
+      return true;
+    } catch (error) {
+      if (error instanceof ForbiddenError) {
+        throw new ForbiddenException(error.message);
+      }
     }
+  }
 }
-
 ```
 
 ```tsx
@@ -126,20 +129,19 @@ export class AbilityModule { }
 ```tsx
 // users.controller.ts
 
-import { Controller, Get, UseGuards } from '@nestjs/common';
-import { AbilitiesGuard } from './abilities.guard';
-import { CheckAbilities, ReadUserAbility } from './abilities.decorator';
+import { Controller, Get, UseGuards } from "@nestjs/common";
+import { AbilitiesGuard } from "./abilities.guard";
+import { CheckAbilities, ReadUserAbility } from "./abilities.decorator";
 
-@Controller('users')
+@Controller("users")
 @UseGuards(AbilitiesGuard)
 export class UsersController {
-    @Get()
-    @CheckAbilities(new ReadUserAbility())
-    getUsers() {
-        // Lógica para obtener usuarios
-    }
+  @Get()
+  @CheckAbilities(new ReadUserAbility())
+  getUsers() {
+    // Lógica para obtener usuarios
+  }
 }
-
 ```
 
 En el ejemplo anterior, el controlador **`UsersController`** define una ruta **`GET`** para obtener usuarios. El decorador **`@CheckAbilities(new ReadUserAbility())`** se utiliza para especificar que los usuarios deben tener la capacidad de leer usuarios (**`ReadUserAbility`**) para acceder a esta ruta. La guardia **`AbilitiesGuard`** verifica si el usuario tiene las habilidades necesarias antes de permitir el acceso a la ruta.
