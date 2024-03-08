@@ -2,19 +2,16 @@ import { Module } from '@nestjs/common';
 import { CacheModule } from '@nestjs/cache-manager';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AcceptLanguageResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
+
 import { HealthModule } from '@core/health/health.module';
 import { LoggerModule } from '@core/logger/logger.module';
-import * as path from 'path';
-import { redisStore } from 'cache-manager-redis-yet';
 
+import { redisStore } from 'cache-manager-redis-yet';
 import { AuthModule } from './auth/auth.module';
 import { AbilityModule } from './ability/ability.module';
 import { FilesModule } from './files/files.module';
 import { EnvConfiguration } from './config/env.config';
 import { TranslateModule } from './translate/translate.module';
-import { TestProductModule } from './test-product/test-product.module';
-
 
 @Module({
   providers: [],
@@ -54,7 +51,6 @@ import { TestProductModule } from './test-product/test-product.module';
     FilesModule,
     AuthModule,
     TranslateModule,
-    TestProductModule,
   ],
 })
 
