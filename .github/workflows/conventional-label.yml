@@ -1,5 +1,5 @@
 ---
-name: 'Conventional release labels'
+name: "Conventional release labels"
 
 on:
   pull_request_target:

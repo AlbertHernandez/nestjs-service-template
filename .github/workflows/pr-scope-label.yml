@@ -1,5 +1,5 @@
 ---
-name: 'PR Scope label'
+name: "PR Scope label"
 
 on:
   pull_request_target:

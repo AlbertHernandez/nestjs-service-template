@@ -1,23 +1,23 @@
 version: "3.8"
 
 services:
-  my-service-production:
-    container_name: my-service-production
-    build:
-      target: production
-      context: .
-      args:
-        - PORT=${PORT:-3000}
-    ports:
-      - "${PORT:-3000}:${PORT:-3000}"
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: "512m"
-        reservations:
-          cpus: "0.25"
-          memory: "256m"
+  # my-service-production:
+  #   container_name: my-service-production
+  #   build:
+  #     target: production
+  #     context: .
+  #     args:
+  #       - PORT=${PORT:-3000}
+  #   ports:
+  #     - "${PORT:-3000}:${PORT:-3000}"
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: "1"
+  #         memory: "512m"
+  #       reservations:
+  #         cpus: "0.25"
+  #         memory: "256m"
 
   my-service-dev:
     container_name: my-service-dev
@@ -42,6 +42,18 @@ services:
         reservations:
           cpus: "0.25"
           memory: "256m"
+
+  postgres-development: # Nombre del servicio PostgreSQL para desarrollo
+    image: postgres:14.3
+    restart: always
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    container_name: my-service-postgres-development # Nombre del contenedor
+    volumes:
+      - ./postgres:/var/lib/postgresql/data # Puedes ajustar la ruta de volumen según tus necesidades
 
 volumes:
   node_modules:

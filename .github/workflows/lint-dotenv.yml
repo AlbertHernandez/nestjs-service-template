@@ -1,5 +1,5 @@
 ---
-name: 'Lint dotenv'
+name: "Lint dotenv"
 
 on:
   push:

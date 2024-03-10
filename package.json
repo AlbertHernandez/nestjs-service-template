@@ -33,7 +33,8 @@
     "prepare": "husky",
     "lint": "eslint --ignore-path .gitignore . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
-    "build:clean": "rimraf dist; exit 0"
+    "build:clean": "rimraf dist; exit 0",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@nestjs/cli": "^10.3.2",
@@ -41,8 +42,12 @@
     "@nestjs/config": "^3.2.0",
     "@nestjs/core": "^10.3.3",
     "@nestjs/platform-fastify": "^10.3.3",
+    "@nestjs/mapped-types": "2.0.5",
+    "@nestjs/typeorm": "^10.0.2",
     "reflect-metadata": "^0.2.1",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "pg": "^8.11.3",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.0.3",
@@ -51,7 +56,7 @@
     "@nestjs/schematics": "^10.1.1",
     "@nestjs/testing": "^10.3.3",
     "@swc/cli": "^0.3.10",
-    "@swc/core": "^1.4.5",
+    "@swc/core": "^1.4.6",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.11.25",
     "@types/supertest": "^6.0.2",

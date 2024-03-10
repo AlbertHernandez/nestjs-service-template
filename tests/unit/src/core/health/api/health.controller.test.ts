@@ -1,4 +1,5 @@
 import { Logger } from "@nestjs/common";
+import { DataSource } from "typeorm";
 
 import { HealthController } from "@core/health/api/health.controller";
 
@@ -10,13 +11,14 @@ describe("HealthController", () => {
 
   beforeEach(() => {
     logger = createMock<Logger>();
-    healthController = new HealthController(logger);
+    healthController = new HealthController(logger, createMock<DataSource>());
   });
 
-  describe("run", () => {
-    it("should return is healthy", () => {
-      expect(healthController.run()).toEqual({ status: "ok" });
-      expect(logger.log).toHaveBeenCalledTimes(1);
+  describe("Check health", () => {
+    it("should return is healthy", async () => {
+      const result = await healthController.run();
+      expect(result).toEqual({ status: "OK" });
+      expect(logger.log).toHaveBeenCalledTimes(2);
     });
   });
 });
