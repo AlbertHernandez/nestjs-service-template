@@ -1,47 +1,43 @@
+/**
+ * La función `bootstrap` inicializa una aplicación NestJS, configura Sentry en entornos de producción,
+ * aplica un filtro global de Sentry para capturar errores, y maneja errores no capturados.
+ */
 import { Logger, ValidationPipe } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { NestFactory, HttpAdapterHost, } from "@nestjs/core";
-import {
-  FastifyAdapter,
-  NestFastifyApplication,
-} from "@nestjs/platform-fastify";
+import { NestFactory } from "@nestjs/core";
 
 import * as Sentry from '@sentry/node';
 import { SentryFilter } from './logger/filters/sentry.filter';
-
-
 import { AppModule } from "./app.module";
 
+// Esta función inicializa la aplicación NestJS.
 async function bootstrap() {
-  const app = await NestFactory.create<NestFastifyApplication>(
-    AppModule,
-    new FastifyAdapter(),
-  );
+  const app = await NestFactory.create(AppModule);
 
   const configService = app.get(ConfigService);
   const isProduction = configService.get<string>("NODE_ENV") === 'production';
 
   if (isProduction) {
-    // Inicialización de Sentry en producción
     Sentry.init({
       dsn: process.env.SENTRY_DNS,
     });
-    // Aplicar el filtro de Sentry globalmente
-    const { httpAdapter } = app.get(HttpAdapterHost);
-    app.useGlobalFilters(new SentryFilter(httpAdapter));
+    // Aplica el filtro de Sentry globalmente para capturar errores.
+    app.useGlobalFilters(new SentryFilter()); // No es necesario pasar httpAdapter
   }
 
-  // Necesario usando Fastify.
+  // El ValidationPipe se utiliza para validar los datos de las solicitudes entrantes.
   app.useGlobalPipes(new ValidationPipe());
 
   const port = configService.get<string>("PORT", "3000");
 
   await app.listen(port, "0.0.0.0");
 
+
   const logger = app.get(Logger);
-  logger.log(`App is ready and listening on port ${port} 🚀`);
+  logger.log(`La aplicación está lista y escuchando en el puerto ${port} `);
 }
 
+// Maneja cualquier error no capturado que ocurra durante la ejecución de la aplicación.
 bootstrap().catch(handleError);
 
 function handleError(error: unknown) {
