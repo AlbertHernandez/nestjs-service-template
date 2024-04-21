@@ -29,7 +29,7 @@
     "test": "rimraf coverage .nyc_output && concurrently 'npm:test:unit' 'npm:test:e2e' && npm run calculate-global-test-coverage",
     "test:unit": "vitest run --coverage --config vitest.config.unit.ts",
     "test:e2e": "vitest run --coverage --config ./vitest.config.e2e.ts",
-    "test:performance": "k6 run tests/performance/users/get-users.js",
+    "test:performance": "k6 run tests/performance/contexts/users/get-users.js",
     "calculate-global-test-coverage": "ts-node scripts/calculate-global-test-coverage.ts",
     "prepare": "husky",
     "lint": "eslint --ignore-path .gitignore . --ext .js,.ts",

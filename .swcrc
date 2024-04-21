@@ -14,6 +14,8 @@
     "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"],
+      "@core/*": ["src/core/*"],
+      "@contexts/*": ["src/contexts/*"],
       "@shared/*": ["src/shared/*"],
       "@tests/*": ["tests/*"]
     },

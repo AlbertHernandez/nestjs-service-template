@@ -56,7 +56,7 @@ services:
       K6_WEB_DASHBOARD_EXPORT: "report.html"
       K6_WEB_DASHBOARD_PERIOD: "1s"
       K6_WEB_DASHBOARD_OPEN: "true"
-    command: ["run", "--out", "web-dashboard", "/tests/performance/users/get-users.js"]
+    command: ["run", "--out", "web-dashboard", "/tests/performance/contexts/users/get-users.js"]
 
 
 volumes:
