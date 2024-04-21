@@ -75,6 +75,7 @@
       "files": ["tests/performance/**"],
       "rules": {
         "unicorn/numeric-separators-style": "off",
+        "unicorn/no-anonymous-default-export": "off",
         "@typescript-eslint/no-unsafe-call": "off",
         "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
