@@ -70,6 +70,16 @@
         "vitest/expect-expect": "off",
         "vitest/no-standalone-expect": "off"
       }
+    },
+    {
+      "files": ["tests/performance/**"],
+      "rules": {
+        "unicorn/numeric-separators-style": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "no-undef": "off"
+      }
     }
   ],
   "env": {

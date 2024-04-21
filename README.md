@@ -39,9 +39,10 @@ Here we are not providing any specific architecture like hexagonal architecture 
    - ⚙️ Check our project does not have type errors with Typescript.
 5. 🗂️ Separate tests over production code. By default, NestJS is combining in the same folder, the `src`, the unit tests and the code we are developing for production. This is something I personally don't like so here I am separating this and having a dedicated folder for the unit tests.
 6. 🧪 Testing with [Vitest](https://vitest.dev/) and [supertest](https://github.com/ladjs/supertest) for unit and e2e tests.
-7. 🤜🤛 Combine unit and e2e test coverage. In the services we may have both type of tests, unit and e2e tests, and usually we would like to see what is the combined test coverage, so we can see the full picture.
-8. 📌 Custom path aliases, where you can define your own paths (you will be able to use imports like `@shared/logger` instead of `../../../src/shared/logger`).
-9. 🚀 CI/CD using GitHub Actions, helping ensure a good quality of our code and providing useful insights about dependencies, security vulnerabilities and others.
+7. 🏎️ Performance testing using [k6](https://grafana.com/oss/k6/).
+8. 🤜🤛 Combine unit and e2e test coverage. In the services we may have both type of tests, unit and e2e tests, and usually we would like to see what is the combined test coverage, so we can see the full picture.
+9. 📌 Custom path aliases, where you can define your own paths (you will be able to use imports like `@shared/logger` instead of `../../../src/shared/logger`).
+10. 🚀 CI/CD using GitHub Actions, helping ensure a good quality of our code and providing useful insights about dependencies, security vulnerabilities and others.
 
 ## 🤩 Other templates
 
@@ -128,6 +129,19 @@ Or if you want e2e tests, you can execute:
 
 ```bash
 npm run test:e2e
+```
+
+We also have performance testing with [k6](https://k6.io/), if you want to run it via docker, execute:
+
+```bash
+docker-compose up k6
+```
+
+Or if you want to run it from your machine, execute:
+
+```bash
+brew install k6
+npm run test:performance
 ```
 
 ## 💅 Linting

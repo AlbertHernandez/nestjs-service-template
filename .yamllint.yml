@@ -11,6 +11,7 @@ rules:
       /.github/workflows/*.yaml
       /.github/workflows/*.yml
       /.github/settings.yml
+      /docker-compose.yml
   truthy:
     ignore: |
       /.github/workflows/*.yaml
