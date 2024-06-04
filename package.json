@@ -50,7 +50,7 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/types": "^19.0.3",
     "@nestjs/schematics": "^10.1.1",
-    "@nestjs/testing": "^10.3.8",
+    "@nestjs/testing": "^10.3.9",
     "@swc/cli": "^0.3.12",
     "@swc/core": "^1.5.24",
     "@types/fs-extra": "^11.0.4",
