@@ -34,7 +34,8 @@
     "prepare": "husky",
     "lint": "eslint --ignore-path .gitignore . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
-    "build:clean": "rimraf dist; exit 0"
+    "build:clean": "rimraf dist; exit 0",
+    "typos": "if command -v typos >/dev/null 2>&1; then typos; else echo \"Typos cli tool is not installed, aborting checking typos. If you want to install it you can run 'brew install typos-cli'\"; fi"
   },
   "dependencies": {
     "@nestjs/cli": "^10.3.2",

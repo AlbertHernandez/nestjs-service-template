@@ -37,6 +37,7 @@ Here we are not providing any specific architecture like hexagonal architecture 
    - 💬 Use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to ensure our commits have a convention.
    - ✅ Run the tests automatically.
    - ⚙️ Check our project does not have type errors with Typescript.
+   - 🙊 Check typos to ensure we don't have grammar mistakes.
 5. 🗂️ Separate tests over production code. By default, NestJS is combining in the same folder, the `src`, the unit tests and the code we are developing for production. This is something I personally don't like so here I am separating this and having a dedicated folder for the unit tests.
 6. 🧪 Testing with [Vitest](https://vitest.dev/) and [supertest](https://github.com/ladjs/supertest) for unit and e2e tests.
 7. 🏎️ Performance testing using [k6](https://grafana.com/oss/k6/).
