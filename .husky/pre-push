@@ -1,4 +1,3 @@
-npm run typos
 npm run build
 find dist/main.js
 npm run test
