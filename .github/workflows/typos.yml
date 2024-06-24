@@ -11,4 +11,4 @@ jobs:
       - name: Checkout 🛬
         uses: actions/checkout@v4
       - name: 🙊 Run code spell checker to check typos
-        uses: crate-ci/typos@v1.22.7
+        uses: crate-ci/typos@v1.22.9
