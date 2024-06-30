@@ -13,7 +13,7 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get(`${BASE_URL}/users`);
+  const res = http.get(`${BASE_URL}/api/users`);
   check(res, {
     "Get status is 200": r => r.status === 200,
   });
