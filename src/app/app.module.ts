@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 
-import { HealthModule } from "@src/core/health/health.module";
+import { HealthModule } from "@src/app/health/health.module";
 
 import { LoggerModule } from "@shared/logger/logger.module";
 
