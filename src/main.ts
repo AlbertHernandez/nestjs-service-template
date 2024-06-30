@@ -14,6 +14,7 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
 
+  app.setGlobalPrefix("api");
   const configService = app.get(ConfigService);
   const port = configService.get<string>("PORT", "3000");
 
