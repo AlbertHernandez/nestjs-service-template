@@ -13,11 +13,11 @@
     },
     "baseUrl": "./",
     "paths": {
-      "@src/*": ["src/*"],
-      "@app/*": ["src/app/*"],
-      "@contexts/*": ["src/contexts/*"],
-      "@shared/*": ["src/contexts/shared/*"],
-      "@tests/*": ["tests/*"]
+      "@/src/*": ["src/*"],
+      "@/app/*": ["src/app/*"],
+      "@/contexts/*": ["src/contexts/*"],
+      "@/shared/*": ["src/contexts/shared/*"],
+      "@/tests/*": ["tests/*"]
     },
     "target": "es2022"
   },

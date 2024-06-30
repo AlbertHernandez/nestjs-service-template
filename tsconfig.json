@@ -14,11 +14,11 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "@src/*": ["src/*"],
-      "@app/*": ["src/app/*"],
-      "@contexts/*": ["src/contexts/*"],
-      "@shared/*": ["src/contexts/shared/*"],
-      "@tests/*": ["tests/*"]
+      "@/src/*": ["src/*"],
+      "@/app/*": ["src/app/*"],
+      "@/contexts/*": ["src/contexts/*"],
+      "@/shared/*": ["src/contexts/shared/*"],
+      "@/tests/*": ["tests/*"]
     },
     "types": ["vitest/globals"]
   },

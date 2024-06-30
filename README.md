@@ -42,7 +42,7 @@ Here we are not providing any specific architecture like hexagonal architecture 
 6. 🧪 Testing with [Vitest](https://vitest.dev/) and [supertest](https://github.com/ladjs/supertest) for unit and e2e tests.
 7. 🏎️ Performance testing using [k6](https://grafana.com/oss/k6/).
 8. 🤜🤛 Combine unit and e2e test coverage. In the services we may have both type of tests, unit and e2e tests, and usually we would like to see what is the combined test coverage, so we can see the full picture.
-9. 📌 Custom path aliases, where you can define your own paths (you will be able to use imports like `@shared/logger` instead of `../../../src/shared/logger`).
+9. 📌 Custom path aliases, where you can define your own paths (you will be able to use imports like `@/shared/logger` instead of `../../../src/shared/logger`).
 10. 🚀 CI/CD using GitHub Actions, helping ensure a good quality of our code and providing useful insights about dependencies, security vulnerabilities and others.
 
 ## 🤩 Other templates
