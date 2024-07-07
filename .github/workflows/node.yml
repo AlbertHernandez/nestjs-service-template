@@ -10,24 +10,8 @@ jobs:
     steps:
       - name: Checkout 🛬
         uses: actions/checkout@v4
-      - name: Cache Dependencies ⌛️
-        uses: actions/cache@v4
-        id: cache-node-modules
-        with:
-          path: 'node_modules'
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json') }}-${{ hashFiles('.github/workflows/node.yml') }}
       - name: Setup Node ⚙️
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: npm
-      - name: Install dependencies 📥
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: |
-          # Bellow npm install is a workaround for https://github.com/swc-project/swc/issues/5616#issuecomment-1651214641
-          npm install --save-optional \
-            "@swc/core-linux-x64-gnu@1" \
-            "@swc/core-linux-x64-musl@1"
+        uses: ./.github/actions/setup-node
       - name: Build typescript 📦
         run: npm run build && find dist/main.js
       - name: Lint code 💅
