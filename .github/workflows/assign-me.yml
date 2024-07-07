@@ -3,6 +3,7 @@ name: 'Assign me'
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   set_assignee:

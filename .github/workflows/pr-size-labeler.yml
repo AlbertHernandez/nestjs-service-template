@@ -3,6 +3,7 @@ name: 'PR Size Labeler'
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   labeler:
