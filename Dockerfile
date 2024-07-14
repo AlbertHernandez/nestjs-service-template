@@ -48,6 +48,7 @@ ENV NODE_ENV=production
 ENV USER=node
 
 COPY --from=build /usr/bin/dumb-init /usr/bin/dumb-init
+COPY --from=build $DIR/package*.json .
 COPY --from=build $DIR/node_modules node_modules
 COPY --from=build $DIR/dist dist
 

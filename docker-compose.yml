@@ -32,8 +32,7 @@ services:
       - "${PORT:-3000}:${PORT:-3000}"
       - "9229:9229"
     volumes:
-      - .:/app
-      - node_modules:/app/node_modules/
+      - ./src:/app/src
     deploy:
       resources:
         limits:
@@ -59,8 +58,5 @@ services:
     command: [
       "run",
       "--out", "web-dashboard",
-      "/tests/performance/contexts/users/get-users.js"
+      "/tests/performance/contexts/users/get-users.mjs"
     ]
-
-volumes:
-  node_modules:
