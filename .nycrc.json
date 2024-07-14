@@ -1,0 +1,9 @@
+{
+  "all": true,
+  "check-coverage": false,
+  "branches": 80,
+  "lines": 80,
+  "functions": 80,
+  "statements": 80,
+  "reporter": ["lcov", "json", "text"]
+}

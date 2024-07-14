@@ -11,7 +11,7 @@
           - scripts/calculate-global-test-coverage.ts
           - vitest.config.**.ts
           - create-vitest-test-config.ts
-          - nyc.config.js
+          - .nycrc.json
 
 📝 Documentation:
   - changed-files:
@@ -46,15 +46,16 @@
           - .prettierignore
           - .swcrc
           - .yamllint.yml
-          - .commitlint.config.js
+          - lint-staged.config.mjs
           - vitest.config.**.ts
           - create-vitest-test-config.ts
           - commitlint.config.ts
           - nest-cli.json
-          - nyc.config.js
-          - prettier.config.js
+          - .nycrc.json
+          - prettier.config.mjs
           - tsconfig.json
           - tsconfig.prod.json
+          - nodemon.json
 
 📦 Dependencies:
   - changed-files:

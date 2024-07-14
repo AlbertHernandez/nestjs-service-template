@@ -4,5 +4,6 @@
 !/tsconfig.prod.json
 !/tsconfig.json
 !/.swcrc
+!/nodemon.json
 !/nest-cli.json
 !/src

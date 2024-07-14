@@ -19,7 +19,11 @@
       "@/shared/*": ["src/contexts/shared/*"],
       "@/tests/*": ["tests/*"]
     },
-    "target": "es2022"
+    "target": "esnext"
+  },
+  "module": {
+    "type": "es6",
+    "resolveFully": true
   },
   "minify": false
 }
