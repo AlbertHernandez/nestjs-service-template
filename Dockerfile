@@ -27,11 +27,8 @@ FROM base AS build
 RUN apk update && apk add --no-cache dumb-init=1.2.5-r2
 
 COPY package*.json .
-# Bellow npm install is a workaround for https://github.com/swc-project/swc/issues/5616#issuecomment-1651214641
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ".npmrc" && \
-    npm install --save-optional \
-        "@swc/core-linux-x64-gnu@1" \
-        "@swc/core-linux-x64-musl@1" && \
+    npm ci && \
     rm -f .npmrc
 
 COPY tsconfig*.json .
