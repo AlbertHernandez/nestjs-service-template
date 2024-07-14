@@ -1,4 +1,3 @@
----
 repository:
   name: nestjs-service-template
   description: Template for new services based on NestJS with the Best Practices and Ready for Production

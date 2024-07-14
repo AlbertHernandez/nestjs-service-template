@@ -1,4 +1,3 @@
----
 name: 'Lint GitHub Actions workflows'
 
 on:
