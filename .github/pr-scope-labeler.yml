@@ -55,7 +55,6 @@
           - prettier.config.mjs
           - tsconfig.json
           - tsconfig.prod.json
-          - nodemon.json
 
 📦 Dependencies:
   - changed-files:
