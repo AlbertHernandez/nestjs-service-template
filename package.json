@@ -82,7 +82,7 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "tsx": "^4.16.3",
+    "tsx": "^4.16.5",
     "typescript": "^5.5.4",
     "unplugin-swc": "^1.5.1",
     "vite": "^5.3.5",
