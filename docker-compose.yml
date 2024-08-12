@@ -18,6 +18,10 @@ services:
         reservations:
           cpus: "0.25"
           memory: "256m"
+    environment:
+      POSTGRES_HOST: postgres
+    depends_on:
+      - postgres
 
   my-service-dev:
     container_name: my-service-dev
@@ -41,6 +45,10 @@ services:
         reservations:
           cpus: "0.25"
           memory: "256m"
+    environment:
+      POSTGRES_HOST: postgres
+    depends_on:
+      - postgres
 
   k6:
     image: ghcr.io/grafana/xk6-dashboard:0.7.2
@@ -60,3 +68,18 @@ services:
       "--out", "web-dashboard",
       "/tests/performance/contexts/users/get-users.mjs"
     ]
+
+  postgres:
+    container_name: postgres
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}
