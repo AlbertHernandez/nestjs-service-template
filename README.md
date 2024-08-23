@@ -98,7 +98,7 @@ This service is providing just a health endpoint which you can call to verify th
 
 ```bash
 curl --request GET \
-  --url http://localhost:3000/health
+  --url http://localhost:3000/api/health
 ```
 
 If you want to stop developing, you can stop the service running:
