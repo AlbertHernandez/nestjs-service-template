@@ -57,7 +57,7 @@
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.7.23",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^20.16.3",
+    "@types/node": "^20.16.4",
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
