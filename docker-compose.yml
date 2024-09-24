@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   my-service-production:
     container_name: my-service-production
