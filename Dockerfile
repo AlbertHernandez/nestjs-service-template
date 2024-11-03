@@ -1,4 +1,4 @@
-FROM node:20-alpine3.18 AS base
+FROM node:22-alpine3.20 AS base
 
 ENV DIR /app
 WORKDIR $DIR
@@ -24,7 +24,7 @@ CMD ["npm", "run", "dev"]
 
 FROM base AS build
 
-RUN apk update && apk add --no-cache dumb-init=1.2.5-r2
+RUN apk update && apk add --no-cache dumb-init=1.2.5-r3
 
 COPY package*.json .
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ".npmrc" && \
