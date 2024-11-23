@@ -1,4 +1,4 @@
-name: 'Lint yaml'
+name: '💅 Lint yaml'
 
 on:
   push:

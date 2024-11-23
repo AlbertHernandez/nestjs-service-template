@@ -1,4 +1,4 @@
-name: 'Lint dockerfile'
+name: '💅 Lint dockerfile'
 
 on:
   push:
