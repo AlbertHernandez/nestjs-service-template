@@ -9,8 +9,8 @@
   "plugins": ["@typescript-eslint", "simple-import-sort"],
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
     "plugin:prettier/recommended",
     "plugin:unicorn/recommended",
     "plugin:node/recommended"
@@ -28,7 +28,11 @@
       { "ignores": ["modules"] }
     ],
     "node/no-unpublished-import": "off",
-    "no-process-exit": "off"
+    "no-process-exit": "off",
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      { "allowNumber": true }
+    ]
   },
   "overrides": [
     {
@@ -55,6 +59,16 @@
             ]
           }
         ]
+      }
+    },
+    {
+      "files": ["*.js", "*.mjs", "*.cjs"],
+      "extends": ["plugin:@typescript-eslint/disable-type-checked"]
+    },
+    {
+      "files": ["*.module.ts"],
+      "rules": {
+        "@typescript-eslint/no-extraneous-class": "off"
       }
     },
     {
