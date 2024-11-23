@@ -1,4 +1,4 @@
-name: 'Lint GitHub Actions workflows'
+name: '💅 Lint GitHub Actions workflows'
 
 on:
   push:
