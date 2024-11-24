@@ -117,7 +117,7 @@ docker-compose down
 ## ⚙️ Building
 
 ```bash
-pnpm build
+node --run build
 ```
 
 ## ✅ Testing
@@ -125,19 +125,19 @@ pnpm build
 The service provide different scripts for running the tests, to run all of them you can run:
 
 ```bash
-pnpm test
+node --run test
 ```
 
 If you are interested just in the unit tests, you can run:
 
 ```bash
-pnpm test:unit
+node --run test:unit
 ```
 
 Or if you want e2e tests, you can execute:
 
 ```bash
-pnpm test:e2e
+node --run test:e2e
 ```
 
 We also have performance testing with [k6](https://k6.io/), if you want to run it via docker, execute:
@@ -150,7 +150,7 @@ Or if you want to run it from your machine, execute:
 
 ```bash
 brew install k6
-pnpm test:performance
+node --run test:performance
 ```
 
 ## 💅 Linting
@@ -158,11 +158,11 @@ pnpm test:performance
 To run the linter you can execute:
 
 ```bash
-pnpm lint
+node --run lint
 ```
 
 And for trying to fix lint issues automatically, you can run:
 
 ```bash
-pnpm lint:fix
+node --run lint:fix
 ```
