@@ -1,6 +1,6 @@
 *
 !/package.json
-!/package-lock.json
+!/pnpm-lock.yaml
 !/tsconfig.prod.json
 !/tsconfig.json
 !/.swcrc

@@ -12,7 +12,7 @@
   <a href="https://github.com/AlbertHernandez/nestjs-service-template/actions/workflows/node.yml?branch=main"><img src="https://github.com/AlbertHernandez/nestjs-service-template/actions/workflows/node.yml/badge.svg?branch=main" alt="nodejs"/></a>
   <a href="https://nodejs.org/docs/latest-v22.x/api/index.html"><img src="https://img.shields.io/badge/node-22.x-green.svg" alt="node"/></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/typescript-5.x-blue.svg" alt="typescript"/></a>
-  <a href="https://docs.nestjs.com/v10/"><img src="https://img.shields.io/badge/npm-10.x-red.svg" alt="npm"/></a>
+  <a href="https://pnpm.io/"><img src="https://img.shields.io/badge/pnpm-9.x-red.svg" alt="pnpm"/></a>
   <a href="https://fastify.dev/"><img src="https://img.shields.io/badge/Web_Framework-Fastify_⚡-black.svg" alt="fastify"/></a>
   <a href="https://swc.rs/"><img src="https://img.shields.io/badge/Compiler-SWC_-orange.svg" alt="swc"/></a>
   <a href="https://vitest.dev/"><img src="https://img.shields.io/badge/Test-Vitest_-yellow.svg" alt="swc"/></a>
@@ -45,6 +45,7 @@ Here we are not providing any specific architecture like hexagonal architecture 
 9. 📌 Custom path aliases, where you can define your own paths (you will be able to use imports like `@/shared/logger` instead of `../../../src/shared/logger`).
 10. 🚀 CI/CD using GitHub Actions, helping ensure a good quality of our code and providing useful insights about dependencies, security vulnerabilities and others.
 11. 🐦‍🔥 Usage of ESModules instead of CommonJS, which is the standard in JavaScript.
+12. 📦 Use of [pnpm](https://pnpm.io/) as package manager, which is faster and more efficient than npm or yarn.
 
 ## 🤩 Other templates
 
@@ -60,6 +61,12 @@ First, we will need to create our .env file, we can create a copy from the examp
 
 ```bash
 cp .env.example .env
+```
+
+Now, we will need to install `pnpm` globally, you can do it running:
+
+```bash
+npm install -g pnpm@9
 ```
 
 The project is fully dockerized 🐳, if we want to start the app in **development mode**, we just need to run:
@@ -110,7 +117,7 @@ docker-compose down
 ## ⚙️ Building
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ## ✅ Testing
@@ -118,19 +125,19 @@ npm run build
 The service provide different scripts for running the tests, to run all of them you can run:
 
 ```bash
-npm run test
+pnpm test
 ```
 
 If you are interested just in the unit tests, you can run:
 
 ```bash
-npm run test:unit
+pnpm test:unit
 ```
 
 Or if you want e2e tests, you can execute:
 
 ```bash
-npm run test:e2e
+pnpm test:e2e
 ```
 
 We also have performance testing with [k6](https://k6.io/), if you want to run it via docker, execute:
@@ -143,7 +150,7 @@ Or if you want to run it from your machine, execute:
 
 ```bash
 brew install k6
-npm run test:performance
+pnpm test:performance
 ```
 
 ## 💅 Linting
@@ -151,11 +158,11 @@ npm run test:performance
 To run the linter you can execute:
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
 And for trying to fix lint issues automatically, you can run:
 
 ```bash
-npm run lint:fix
+pnpm lint:fix
 ```

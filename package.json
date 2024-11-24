@@ -20,21 +20,22 @@
   ],
   "engines": {
     "node": ">=22.x",
-    "npm": ">=10.x"
+    "pnpm": ">=9.x"
   },
   "main": "dist/main.js",
   "scripts": {
-    "build": "npm run build:clean && nest build --path tsconfig.prod.json",
+    "build": "pnpm build:clean && nest build --path tsconfig.prod.json",
     "start": "node dist/main.js",
     "dev": "nest start --watch --debug=0.0.0.0:9229",
-    "test": "rimraf coverage .nyc_output && concurrently 'npm:test:unit' 'npm:test:e2e' && npm run calculate-global-test-coverage",
+    "test": "rimraf coverage .nyc_output && concurrently 'pnpm:test:unit' 'pnpm:test:e2e' && pnpm calculate-global-test-coverage",
     "test:unit": "vitest run --coverage --config vitest.config.unit.ts",
     "test:e2e": "vitest run --coverage --config ./vitest.config.e2e.ts",
     "test:performance": "k6 run tests/performance/contexts/users/get-users.mjs",
     "calculate-global-test-coverage": "tsx scripts/calculate-global-test-coverage.ts",
-    "prepare": "husky",
+    "prepare": "[ -f .husky/install.mjs ] && node .husky/install.mjs || true",
     "lint": "eslint --ignore-path .gitignore . --ext .js,.mjs,cjs,.ts,.mts",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "eslint --ignore-path .gitignore . --ext .js,.mjs,cjs,.ts,.mts --fix",
+    "lint:file": "eslint --ignore-path .gitignore",
     "lint:yaml": "chmod +x scripts/lint_yaml.sh && ./scripts/lint_yaml.sh",
     "build:clean": "rimraf dist; exit 0",
     "typos": "chmod +x scripts/check_typos.sh && ./scripts/check_typos.sh"
@@ -61,7 +62,7 @@
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "@vitest/coverage-istanbul": "^1.3.1",
+    "@vitest/coverage-istanbul": "1.3.1",
     "concurrently": "^9.0.1",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.0.0",
