@@ -17,19 +17,25 @@ runs:
     - name: Authenticate npm 🔑
       shell: bash
       run: echo "//registry.npmjs.org/:_authToken=${{ inputs.npm_token }}" > ~/.npmrc
+    - name: Install pnpm 📦
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
     - name: Cache Dependencies ⌛️
       uses: actions/cache@v4
       id: cache-node-modules
       with:
-        path: 'node_modules'
-        key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json') }}-${{ hashFiles('.github/actions/setup-node/action.yml') }}-node-${{ hashFiles('.nvmrc') }}-${{ inputs.version }}
+        path: |
+          ~/.pnpm-store
+          node_modules
+        key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('.github/actions/setup-node/action.yml') }}-node-${{ hashFiles('.nvmrc') }}-${{ inputs.version }}
     - name: Setup Node ⚙️
       uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.version }}
         node-version-file: '.nvmrc'
-        cache: npm
+        cache: 'pnpm'
     - name: Install dependencies 📥
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       shell: bash
-      run: npm ci
+      run: pnpm install --frozen-lockfile

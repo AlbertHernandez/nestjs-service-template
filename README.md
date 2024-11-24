@@ -62,6 +62,12 @@ First, we will need to create our .env file, we can create a copy from the examp
 cp .env.example .env
 ```
 
+Now, we will need to install `pnpm` globally, you can do it running:
+
+```bash
+npm install -g pnpm@9
+```
+
 The project is fully dockerized 🐳, if we want to start the app in **development mode**, we just need to run:
 
 ```bash
@@ -110,7 +116,7 @@ docker-compose down
 ## ⚙️ Building
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ## ✅ Testing
@@ -118,19 +124,19 @@ npm run build
 The service provide different scripts for running the tests, to run all of them you can run:
 
 ```bash
-npm run test
+pnpm test
 ```
 
 If you are interested just in the unit tests, you can run:
 
 ```bash
-npm run test:unit
+pnpm test:unit
 ```
 
 Or if you want e2e tests, you can execute:
 
 ```bash
-npm run test:e2e
+pnpm test:e2e
 ```
 
 We also have performance testing with [k6](https://k6.io/), if you want to run it via docker, execute:
@@ -143,7 +149,7 @@ Or if you want to run it from your machine, execute:
 
 ```bash
 brew install k6
-npm run test:performance
+pnpm test:performance
 ```
 
 ## 💅 Linting
@@ -151,11 +157,11 @@ npm run test:performance
 To run the linter you can execute:
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
 And for trying to fix lint issues automatically, you can run:
 
 ```bash
-npm run lint:fix
+pnpm lint:fix
 ```
