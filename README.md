@@ -66,7 +66,7 @@ cp .env.example .env
 Now, we will need to install `pnpm` globally, you can do it running:
 
 ```bash
-npm install -g pnpm@9
+npm install -g pnpm@9.14.2
 ```
 
 The project is fully dockerized 🐳, if we want to start the app in **development mode**, we just need to run:
