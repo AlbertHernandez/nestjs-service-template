@@ -23,7 +23,7 @@ COPY nest-cli.json .
 COPY src src
 
 EXPOSE $PORT
-CMD ["pnpm", "dev"]
+CMD ["node", "--run", "dev"]
 
 FROM base AS build
 
@@ -41,7 +41,7 @@ COPY .swcrc .
 COPY nest-cli.json .
 COPY src src
 
-RUN pnpm build && \
+RUN node --run build && \
     pnpm prune --prod
 
 FROM base AS production
