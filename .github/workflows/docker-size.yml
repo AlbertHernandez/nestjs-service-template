@@ -13,7 +13,7 @@ jobs:
     outputs:
       image_size: ${{ steps.docker-base.outputs.image_size }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.base_ref }}
       - name: Get commit short hash
@@ -44,7 +44,7 @@ jobs:
     outputs:
       image_size: ${{ steps.docker-head.outputs.image_size }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
       - name: 🐳 Calculate docker image size in ${{ github.head_ref }}

@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛬
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: 🙊 Run code spell checker to check typos
         uses: crate-ci/typos@v1.40.0
