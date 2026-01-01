@@ -22,7 +22,7 @@ jobs:
           short=$(git rev-parse --short HEAD)
           echo "short=$short" >> "$GITHUB_OUTPUT"
       - name: 📦 Cache docker image for commit ${{ steps.commit.outputs.short }}
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: base-docker-image.txt
           key: base-docker-image-os-${{ runner.os }}-commit-${{ steps.commit.outputs.short }}
