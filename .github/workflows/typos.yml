@@ -10,4 +10,4 @@ jobs:
       - name: Checkout 🛬
         uses: actions/checkout@v4
       - name: 🙊 Run code spell checker to check typos
-        uses: crate-ci/typos@v1.42.2
+        uses: crate-ci/typos@v1.44.0
