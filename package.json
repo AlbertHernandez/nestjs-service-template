@@ -54,7 +54,7 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/types": "^19.8.1",
-    "@nestjs/schematics": "^10.2.3",
+    "@nestjs/schematics": "^11.1.0",
     "@nestjs/testing": "^10.4.6",
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.15.7",
